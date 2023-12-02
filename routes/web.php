@@ -46,11 +46,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('/enquiry-store', [EnquiryController::class, 'enquiryStore'])->name('enquiry-store');
 
 
-    //Addmission 
+    //Addmission
 
     Route::get('/view-add', [AddmisionController::class, 'getAdd'])->name('view-add');
-    Route::get('/addmission', [AddmisionController::class, 'addmission'])->name('addmission');
+    Route::get('/addmission/{id}', [AddmisionController::class, 'addmission'])->name('addmission');
+    Route::get('/addmission-view', [AddmisionController::class, 'addmissionView'])->name('addmission-view');
     Route::post('/addmission-store', [AddmisionController::class, 'admitStore'])->name('addmission-store');
+
+
+    Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');
+
+    Route::get('/booking/{id}', [\App\Http\Controllers\BookingController::class, 'booking'])->name('booking');
+    Route::get('/booking-view', [\App\Http\Controllers\BookingController::class, 'bookingView'])->name('booking-view');
+    Route::post('/booking-store', [\App\Http\Controllers\BookingController::class, 'bookingStore'])->name('booking-store');
+
 });
 
 
@@ -67,4 +76,4 @@ Route::group(['prefix' => 'teacher'], function () {
 
 
 
-//Addmission 
+//Addmission

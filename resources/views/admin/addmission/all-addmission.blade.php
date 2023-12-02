@@ -34,18 +34,23 @@
                             @endif
                             @csrf
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Enquiry ID</strong></label>
+                                <label class="mb-2"><strong>Details</strong></label>
+                                <br>
+                                <label class="mb-2"><strong>Phone: </strong>{{$enquiry->phone_no}}</label><br>
+                                <label class="mb-2"><strong>Name: </strong>{{$enquiry->full_name}}</label><br>
+                                <label class="mb-2"><strong>Address: </strong>{{$enquiry->address}}</label><br>
+                                <label class="mb-2"><strong>Course: </strong>{{$enquiry->course_title}}</label><br><br>
+                                <input type="hidden" name="enquiry_id" value="{{$enquiry->id}}">
+{{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0">--}}
 
-                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0">
+{{--                                    <option value="">-- Select Enquiry ID --</option>--}}
+{{--                                    @foreach ($enquiry as $data)--}}
+{{--                                        <option value="   {{ $data->id }}">--}}
+{{--                                            {{ $data->id }}--}}
+{{--                                        </option>--}}
+{{--                                    @endforeach--}}
 
-                                    <option value="">-- Select Enquiry ID --</option>
-                                    @foreach ($enquiry as $data)
-                                        <option value="   {{ $data->id }}">
-                                            {{ $data->id }}
-                                        </option>
-                                    @endforeach
-
-                                </select>
+{{--                                </select>--}}
 
 
                             </div>
