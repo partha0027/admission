@@ -74,7 +74,7 @@
                                                         <td>{{ $admission->status }}</td>
                                                         {{-- <td>{{ $admission->remarks }}</td> --}}
                                                         <td>{{ $admission->count }}</td>
-                                                        <td>{{ $admission->month }}
+                                                        <td>
                                                             @php
                                                                 $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                                                             @endphp
