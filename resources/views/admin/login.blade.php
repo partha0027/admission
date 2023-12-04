@@ -5,10 +5,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Dreamzone-login</title>
+    <title>Dreamzone - login</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/dz.png" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/skin.css') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -18,9 +20,19 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row justify-content-center mt-5 mb-2">
+            <div class="col-sm-2 ">
+                <img src="images/dz.png" alt="" style="width: 200px; margin-left:10px;">
+                <h4>Admisson Enquiry</h4>
+            </div>
+
+
+        </div>
+     
+        <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-4">
-                <div class="card shadow">
+                <div class="card shadow-sm">
+                  
                     <div class="card-header">
                         <h4 class="fw-bold  text-center">Login </h4>
                         {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
@@ -55,10 +67,10 @@
                                 <input type="submit" value="Login" class="btn btn-primary btn-block rounded-0"
                                     id="login_btn">
                             </div>
-                            <div class="text-center text-secondary">
+                            {{-- <div class="text-center text-secondary">
                                 <div>Don't have an account? <a href="/register" class="text-decoration-none">Register
                                         Here</a></div>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
 

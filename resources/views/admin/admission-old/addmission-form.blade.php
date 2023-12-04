@@ -95,19 +95,19 @@
                                 <textarea name="remarks" id="remarks" class="form-control"></textarea>
                             </div> --}}
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Count</strong></label>
+                                <label class="mb-2"><strong>Admission Count</strong></label>
                                 <input type="text" class="form-control" id="amount" name="amount" required
                                     placeholder="Enter Count">
 
                             </div>
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Addmission at</strong></label>
+                                <label class="mb-2"><strong>Month</strong></label>
                                 {{-- <input type="date" class="form-control" id="addmission_at" name="addmission_at"
                                     required placeholder="Enter Addmission Date">  --}}
 
                                 <select name="addmission_at" id="addmission_at" class="form-select">
-                                    <option value=''>--Select Month--</option>
-                                    <option selected value='1'>Janaury</option>
+                                    <option value='' selected>--Select Month--</option>
+                                    <option  value='1'>Janaury</option>
                                     <option value='2'>February</option>
                                     <option value='3'>March</option>
                                     <option value='4'>April</option>

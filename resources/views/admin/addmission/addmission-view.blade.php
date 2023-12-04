@@ -16,13 +16,13 @@
                         <h4>All Admissions</h4>
                     </div>
                 </div>
-                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                {{-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Admissions</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">All Admissions</a></li>
                     </ol>
-                </div>
+                </div> --}}
             </div>
 
 

@@ -50,15 +50,13 @@ class AddmisionController extends Controller
         $en->status = 'a';
         $en->update();
 
-        $b = Booking::where('enquiry_id',$request->enquiry_id)->first();
-        if($b != NULL)
-        {
+        $b = Booking::where('enquiry_id', $request->enquiry_id)->first();
+        if ($b != NULL) {
             $b->status = 'c';
             $b->update();
 
             // return redirect()->route('booking-view');
             return redirect()->route('booking-view')->with('success', 'Admission done successfully.');
-
         }
 
 
@@ -68,7 +66,7 @@ class AddmisionController extends Controller
 
         return redirect()->route('view-add')->with('success', 'Admission done successfully');
         // return redirect()->route('addmission-view')->with('success', 'Form submitted successfully.');
-        
+
 
 
 
@@ -77,9 +75,8 @@ class AddmisionController extends Controller
 
     public function addmissionViewOld()
     {
-       
+
         return view('admin.admission-old.addmission-form');
-        
     }
 
 
@@ -88,31 +85,30 @@ class AddmisionController extends Controller
         $request->validate([
             'session' => 'required',
             'status' => 'required',
-        
+
             'amount' => 'required',
             'addmission_at' => 'required',
         ]);
 
         $enquiry = new OldAdmission();
-      
+
 
         $enquiry->session = $request->session;
         $enquiry->status = $request->status;
-   
-        $enquiry->amount = $request->amount;
-        $enquiry->addmission_at = $request->addmission_at;
+        $enquiry->count = $request->count;
+        $enquiry->month = $request->month;
 
 
         $enquiry->save();
 
-      
+
         // return redirect()->back()->with('success', 'Form submitted successfully.');
 
         // return view("admin.index");
 
         return redirect()->route('view-add-old')->with('success', 'Admission done successfully');
         // return redirect()->route('addmission-view')->with('success', 'Form submitted successfully.');
-        
+
 
 
 
@@ -138,5 +134,3 @@ class AddmisionController extends Controller
         return view('admin.admission-old.addmission-view', compact('admissions'));
     }
 }
-
-

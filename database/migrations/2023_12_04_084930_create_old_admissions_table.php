@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('session');
             $table->string('status');
             $table->string('remarks')->nullable();
-            $table->string('amount');
-            $table->string('addmission_at')->nullable();
+            $table->string('count');
+            $table->string('month')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

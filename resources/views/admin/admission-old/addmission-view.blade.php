@@ -16,13 +16,13 @@
                         <h4>All Admissions</h4>
                     </div>
                 </div>
-                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                {{-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Admissions</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">All Admissions</a></li>
                     </ol>
-                </div>
+                </div> --}}
             </div>
 
 
@@ -60,8 +60,8 @@
                                                     <th width="100px">Session</th>
                                                     <th width="100px">Admission Status</th>
                                                     {{-- <th width="10px">Remarks</th> --}}
-                                                    <th width="10px">Count</th>
-                                                    <th width="10px">Addmission At</th>
+                                                    <th width="10px">Admission Count</th>
+                                                    <th width="10px">Montht</th>
                                                 </tr>
                                             </thead>
 
@@ -73,8 +73,8 @@
                                                         <td>{{ $admission->session }}</td>
                                                         <td>{{ $admission->status }}</td>
                                                         {{-- <td>{{ $admission->remarks }}</td> --}}
-                                                        <td>{{ $admission->amount }}</td>
-                                                        <td>{{ $admission->addmission_at }}</td>
+                                                        <td>{{ $admission->count }}</td>
+                                                        <td>{{ $admission->month }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
