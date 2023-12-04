@@ -24,7 +24,7 @@
                     </ol>
                 </div>
             </div>
-            <div id="alertContainer"></div>
+
 
             <div class="row">
 
@@ -37,7 +37,13 @@
 
                                 </div>
 
+
                                 <div class="card-body">
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('success') }}
+                                        </div>
+                                    @endif
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-condensed data-table table-hover"
                                             id="ajax-crud-datatable">
@@ -54,10 +60,10 @@
                                             </thead>
 
                                             <tbody>
-                                                @foreach ($admissions as $key=>$admission)
+                                                @foreach ($admissions as $key => $admission)
                                                     <tr class="text-center">
 
-                                                        <td>{{ $key+1 }}</td>
+                                                        <td>{{ $key + 1 }}</td>
                                                         <td>{{ $admission->enquiry_id }}</td>
                                                         <td>{{ $admission->status }}</td>
                                                         <td>{{ $admission->remarks }}</td>

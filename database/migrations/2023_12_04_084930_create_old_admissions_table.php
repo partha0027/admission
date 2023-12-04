@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('old_admissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('enquiry_id')->constrained('enquiries')->onDelete('cascade');
+            $table->string('session');
+            $table->string('status');
+            $table->string('remarks')->nullable();
             $table->string('amount');
-            $table->string('comment');
-            $table->string('status')->default('i');
-            $table->softDeletes();
+            $table->string('addmission_at')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('old_admissions');
     }
 };

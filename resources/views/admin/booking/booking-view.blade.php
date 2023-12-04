@@ -1,97 +1,151 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
+@extends('admin.layout.master')
+@section('title')
+    All Departments
+@endsection
 
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Edumin - Bootstrap Admin Dashboard</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-</head>
+@section('content')
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
 
-<body>
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center align-items-center min-vh-100">
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-header">
-                    <h4 class="fw-bold  text-center">Booking </h4>
-                    {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>All Booking</h4>
+                    </div>
                 </div>
-                <div class="card-body p-5">
-                    <form action="{{ route('booking-store') }}" id="DepartmentForm" name="Form"
-                          class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
-                        @if (session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @csrf
-                        <div class="mb-2">
-
-                            <input type="hidden" name="enquiry_id" value="{{$en->id}}">
-                            {{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0">--}}
-
-                            {{--                                    <option value="">-- Select Enquiry ID --</option>--}}
-                            {{--                                    @foreach ($enquiry as $data)--}}
-                            {{--                                        <option value="   {{ $data->id }}">--}}
-                            {{--                                            {{ $data->id }}--}}
-                            {{--                                        </option>--}}
-                            {{--                                    @endforeach--}}
-
-                            {{--                                </select>--}}
-
-
-                        </div>
-
-                        <div class="mb-2">
-                            <label class="mb-2"><strong>Amount</strong></label>
-                            <input type="text" class="form-control" id="amount" name="amount"
-                                   placeholder="Enter Amount">
-
-                        </div>
-
-
-                        <div class="mt-3 d-grid">
-                            <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
-                                   id="login_btn">
-                        </div>
-
-
-                    </form>
-
-
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Addmissions</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Addmissions</a></li>
+                    </ol>
                 </div>
-
             </div>
+            <div id="alertContainer"></div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="row tab-content">
+                        <div id="list-view" class="tab-pane fade active show col-lg-12">
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <h4 class="card-title">All Booking </h4>
+
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        @if(Session::has('success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('success') }}
+                                        </div>
+                                    @endif
+                                        <table class="table table-bordered table-condensed data-table table-hover"
+                                            id="ajax-crud-datatable">
+                                            <thead class="text-center">
+                                                <tr>
+
+                                                    <th width="100px">Sl No.</th>
+                                                    <th width="100px">Enquiry ID</th>
+                                                    <th width="10px">Booking Amount</th>
+                                                    <th width="10px">Comment</th>
+                                                    <th width="10px">Status</th>
+                                                    <th width="10px">Booking At</th>
+                                                    <th width="10px">Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach ($booking as $key => $b)
+                                                    <tr>
+
+                                                        <td>{{ $key + 1 }}</td>
+                                                        <td>{{ $b->id }}</td>
+                                                        <td>{{ $b->amount }}</td>
+                                                        <td>{{ $b->comment }}</td>
+                                                        <td>
+                                                            @if ($b->status == 'i')
+                                                                Initial
+                                                            @else
+                                                                Admission Confirmed
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $b->created_at }}</td>
+                                                        <td>
+                                                            @if ($b->status == 'i')
+                                                                <a href="{{ route('addmission', $b->enquiry_id) }}">
+                                                                    <button class="btn btn-primary btn-sm">Admission
+                                                                    </button>
+                                                                </a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="course-modal" aria-hidden="true">
+                            <div class="modal-dialog  modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-primary rounded-0">
+                                        <h5 class="modal-title text-white">Department</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">
+                                            <i class="fa-solid fa-circle-xmark"></i></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form action="javascript:void(0)" id="DepartmentForm" name="Form"
+                                            class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <strong class="error_success_msg_container my-3 text-center"></strong>
+                                            <input type="hidden" name="id" id="id">
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-6 control-label">Department Name</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control rounded-0"
+                                                        id="department_name" name="department_name"
+                                                        placeholder="Enter Department Name" maxlength="50" required="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-6 control-label">Department Code</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control rounded-0"
+                                                        id="department_code" name="department_code"
+                                                        placeholder="Enter Department Code" maxlength="50" required="">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-offset-2 col-sm-10"><br />
+                                                <button type="submit" class="btn btn-primary" id="btn-save"><i
+                                                        class="fa-regular fa-bookmark"></i> Save changes
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" id="btn_cncl"
+                                                    data-bs-dismiss="modal">Close
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    <
-    script
-    src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity = "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin = "anonymous" >
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-</script>
-</script>
-
-<
-/body>
-
-{{-- addmissio - amount --}}
-{{-- enquiry source --}}
-
-< /html>
+@endsection

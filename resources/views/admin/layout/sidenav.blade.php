@@ -21,7 +21,7 @@
 
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-building"></i>
-                    <span class="nav-text">Addmission</span>
+                    <span class="nav-text">Admission</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('view-add') }}">All Admissions</a></li>
@@ -38,6 +38,17 @@
 
                 </ul>
             </li>
+
+            
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <i class="la la-building"></i>
+                <span class="nav-text">Old Admission</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ route('view-add-old') }}">All Admissions</a></li>
+
+            </ul>
+        </li>
 
         </ul>
     </div>

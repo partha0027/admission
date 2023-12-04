@@ -10,7 +10,7 @@ class EnquiryController extends Controller
 {
     public function enquiry()
     {
-        return view("admin.Enquiry.enquiry");
+        return view("admin.Enquiry.enquiry-form");
     }
 
 
@@ -38,14 +38,15 @@ class EnquiryController extends Controller
 
         // return redirect()->back()->with('success', 'Form submitted successfully');
 
-        return redirect()->route('view-enquiry');
+        // return redirect()->route('view-enquiry');
+        return redirect()->route('view-enquiry')->with('success', 'Enquiry submitted successfully.');
     }
 
 
     public function getEnquiry()
     {
         $enquiries = Enquiry::paginate(10);
-        return view('admin.Enquiry.view-enquiry', compact('enquiries'));
+        return view('admin.Enquiry.enquiry-view', compact('enquiries'));
     }
 
     public function followUp($id)

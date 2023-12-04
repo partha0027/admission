@@ -54,6 +54,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('/addmission-store', [AddmisionController::class, 'admitStore'])->name('addmission-store');
 
 
+   // Old Admission
+
+    Route::get('/view-add-old', [AddmisionController::class, 'getAddOld'])->name('view-add-old');
+    Route::get('/addmission-view-old', [AddmisionController::class, 'addmissionViewOld'])->name('addmission-view-old');
+    Route::post('/addmission-store-old', [AddmisionController::class, 'admitStoreOld'])->name('addmission-store-old');
+
+
+
     Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');
 
     Route::get('/booking/{id}', [\App\Http\Controllers\BookingController::class, 'booking'])->name('booking');
