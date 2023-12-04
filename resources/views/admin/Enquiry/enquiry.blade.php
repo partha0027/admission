@@ -34,6 +34,11 @@
                                 </div>
                             @endif
                         </div>
+                        @if (session('message'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <form action="{{ route('enquiry-store') }}" id="DepartmentForm" name="Form"
                             class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
                             @if (session('success'))
@@ -56,6 +61,12 @@
                                 <label class="mb-2"><strong>Enter Full Name</strong></label>
                                 <input type="text" class="form-control" id="full_name" name="full_name"
                                     placeholder="Enter Full Name" maxlength="50" required="">
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="mb-2"><strong>Enter Addresse</strong></label>
+                                <textarea class="form-control" name="address" placeholder="Address"></textarea>
+
                             </div>
 
                             <div class="mb-2">
@@ -122,10 +133,9 @@
 
                                     <option value="Master Diploma in 3D Modelling & Animation Maya">Master Diploma in 3D
                                         Modelling & Animation Maya</option>
-                                        <option value="Diploma in Movie Editing & Compositing ">Diploma in Movie Editing & Compositing </option>
-                                        <option value="Certificate Course on Editing">Certificate Course on Editing</option>
-
-                                </select>
+                                    <option value="Diploma in Movie Editing & Compositing ">Diploma in Movie Editing &
+                                        Compositing </option>
+                                    <option value="Certificate Course on Editing">Certificate Course on Editing</option>
                             </div>
 
                             <div class="mb-2">
@@ -133,7 +143,6 @@
                                 <input type="text" class="form-control" id="source" name="source"
                                     placeholder="Enter Source " maxlength="50" required="">
                             </div>
-
 
 
                             <div class="mb-2">
@@ -151,7 +160,6 @@
                             </div>
 
 
-
                             <div class="mt-3 d-grid">
                                 <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
                                     id="login_btn">
@@ -159,7 +167,6 @@
 
 
                         </form>
-
 
 
                     </div>
@@ -172,7 +179,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        < script src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        <
+        script
+        src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity = "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin = "anonymous" >
     </script>
@@ -181,6 +190,6 @@
     </script>
     </script>
 
-</body>
+    < /body>
 
-</html>
+        < /html>

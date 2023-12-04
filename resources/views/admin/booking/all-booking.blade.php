@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    All Enquiries
+    All Departments
 @endsection
 
 
@@ -13,14 +13,14 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>All Enquiry</h4>
+                        <h4>All Booking</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Enquiry</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Enquiries</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Addmissions</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Addmissions</a></li>
                     </ol>
                 </div>
             </div>
@@ -33,9 +33,7 @@
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card shadow-sm">
                                 <div class="card-header">
-                                    <h4 class="card-title">All Enquiries </h4>
-                                    <a href="{{ route('enquiry') }}" class="btn btn-primary"><i
-                                            class="fa-solid fa-plus"></i> Add Enquiry</a>
+                                    <h4 class="card-title">All Booking </h4>
 
                                 </div>
 
@@ -46,73 +44,43 @@
                                             <thead class="text-center">
                                             <tr>
 
-                                                <th width="10px">Sl No</th>
-                                                <th width="100px">Phone No</th>
-                                                <th width="100px">Full Name</th>
-                                                <th width="100px">Address</th>
-                                                <th width="10px">Course Title</th>
-                                                <th width="10px">Source</th>
-
-
-                                                <th width="10px">Follow-Up</th>
+                                                <th width="100px">ID</th>
+                                                <th width="10px">Amount</th>
                                                 <th width="10px">Status</th>
-                                                <th width="10px">Enquiry Date</th>
-                                                <th width="10px">Comment</th>
+                                                <th width="10px">Booking At</th>
                                                 <th width="10px">Action</th>
                                             </tr>
                                             </thead>
 
-                                            <tbody class="text-center">
-                                            @foreach ($enquiries as $key => $enquiry)
+                                            <tbody>
+                                            @foreach($booking as $b)
                                                 <tr>
-                                                    <td>{{ $key+1 }}</td>
-                                                    <td>{{ $enquiry->phone_no }}</td>
-                                                    <td>{{ $enquiry->full_name }}</td>
-                                                    <td>{{ $enquiry->address }}</td>
-                                                    <td>{{ $enquiry->course_title }}</td>
-                                                    <td>{{ $enquiry->source }}</td>
 
-
-                                                    <td>{{ $enquiry->follow_up }} Follow-up</td>
+                                                    <td>{{ $b->id }}</td>
+                                                    <td>{{ $b->amount }}</td>
                                                     <td>
-                                                        @if($enquiry->status == 'b')
-                                                            At Booking
-                                                        @elseif($enquiry->status == 'a')
-                                                            Admission Confirm
-                                                        @else
+                                                        @if($b->status == 'i')
                                                             Initial
+                                                        @else
+                                                            Admission Confirmed
                                                         @endif
                                                     </td>
-                                                    <td>{{ $enquiry->enquiry_at }}</td>
-                                                    <td>{{ $enquiry->comment }}</td>
+                                                    <td>{{ $b->creted_at }}</td>
                                                     <td>
-                                                        <a href="{{route('follow-up',$enquiry->id)}}">
-                                                            <button class="btn btn-primary btn-sm"
-                                                                    onclick="return confirm('Are you sure ?');">
-                                                                Follow-Up
-                                                            </button>
-                                                        </a>
-                                                        @if($enquiry->status == 'i')
-                                                            <a href="{{route('addmission',$enquiry->id)}}">
+                                                        @if($b->status == 'i')
+                                                            <a href="{{route('addmission',$b->enquiry_id)}}">
                                                                 <button class="btn btn-primary btn-sm">Admission
                                                                 </button>
                                                             </a>
                                                         @endif
-                                                        @if($enquiry->status == 'i')
-                                                            <a href="{{route('booking',$enquiry->id)}}">
-                                                                <button class="btn btn-primary btn-sm">Booking</button>
-                                                            </a>
-                                                        @endif
                                                     </td>
-
                                                 </tr>
                                             @endforeach
                                             </tbody>
 
-                                        </table>
 
-                                        {{-- {{ $enquiries->links() }} --}}
-                                        {!! $enquiries->render('pagination::bootstrap-5') !!}
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
