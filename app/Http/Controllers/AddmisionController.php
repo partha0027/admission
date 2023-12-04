@@ -95,7 +95,7 @@ class AddmisionController extends Controller
 
         $enquiry->session = $request->session;
         $enquiry->status = $request->status;
-        $enquiry->amount = $request->amount;
+        $enquiry->count = $request->count;
         $enquiry->month = $request->month;
 
 
