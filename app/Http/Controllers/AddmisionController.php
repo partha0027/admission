@@ -12,7 +12,7 @@ class AddmisionController extends Controller
     public function addmission($id)
     {
         $enquiry = Enquiry::where('id', $id)->first();
-        $amount = Booking::where('id', $id)->first();
+        $amount = Booking::where('enquiry_id', $id)->first();
         return view('admin.addmission.all-addmission', compact('enquiry', 'amount'));
     }
 
@@ -49,20 +49,26 @@ class AddmisionController extends Controller
         $en->update();
 
         $b = Booking::where('enquiry_id',$request->enquiry_id)->first();
-        $b->status = 'c';
-        $b->update();
-    
+        if($b != NULL)
+        {
+            $b->status = 'c';
+            $b->update();
+
+            return redirect()->route('booking-view');
+
+        }
+
 
         // return redirect()->back()->with('success', 'Form submitted successfully.');
 
         // return view("admin.index");
 
-        return redirect()->route('booking-view'); 
+        return redirect()->route('addmission-view');
 
 
-        
-      
-       
+
+
+
 
     }
 

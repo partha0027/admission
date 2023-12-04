@@ -53,7 +53,8 @@
                         <div class="mb-2">
                             <label class="mb-2"><strong>Enter Phone Number</strong></label>
                             <input type="text" class="form-control" id="phone_no" name="phone_no"
-                                   placeholder="Enter Phone Number" maxlength="50" required="">
+                                   placeholder="Enter Phone Number" maxlength="10" required="" minlength="10"
+                                   oninput="this.value = this.value.replace(/[^0-9 ]/g, '').replace(/(\..*)\./g, '$1');">
                         </div>
 
 
@@ -139,7 +140,7 @@
                                 </select>
                             </div>
 
-                 
+
 
                         <div class="mb-2">
                             <label class="mb-2"><strong>Source</strong></label>
@@ -161,7 +162,7 @@
                                     placeholder="Enter Joining Date">
 
                             </div>
-                       
+
 
 
                             <div class="mt-3 d-grid">

@@ -44,8 +44,9 @@
                                             <thead class="text-center">
                                                 <tr>
 
+                                                    <th width="100px">Sl No.</th>
                                                     <th width="100px">Enquiry ID</th>
-                                                    <th width="100px">Status</th>
+                                                    <th width="100px">Admission Status</th>
                                                     <th width="10px">Remarks</th>
                                                     <th width="10px">Amount</th>
                                                     <th width="10px">Addmission At</th>
@@ -53,9 +54,10 @@
                                             </thead>
 
                                             <tbody>
-                                                @foreach ($admissions as $admission)
+                                                @foreach ($admissions as $key=>$admission)
                                                     <tr class="text-center">
 
+                                                        <td>{{ $key+1 }}</td>
                                                         <td>{{ $admission->enquiry_id }}</td>
                                                         <td>{{ $admission->status }}</td>
                                                         <td>{{ $admission->remarks }}</td>

@@ -32,6 +32,12 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
+                                @if (Session::get('error'))
+                                    <div class="alert alert-danger fw-bold" role="alert">
+                                        {{ Session::get('error') }}
+
+                                    </div>
+                                @endif
                             @csrf
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Details</strong></label>
@@ -41,7 +47,7 @@
                                 <label class="mb-2"><strong>Address: </strong>{{ $enquiry->address }}</label><br>
                                 <label class="mb-2"><strong>Course:
                                     </strong>{{ $enquiry->course_title }}</label><br>
-                                <label class="mb-2"><strong>Amount: </strong>{{ $amount->amount }}</label>
+                                <label class="mb-2"><strong>Booking Amount: </strong>{{ $amount->amount ?? 'N/A' }}</label>
                                 <input type="hidden" name="enquiry_id" value="{{ $enquiry->id }}">
 
                                 {{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0"> --}}
@@ -58,14 +64,14 @@
 
                             </div>
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Status</strong></label>
+                                <label class="mb-2"><strong>Admission Status</strong></label>
                                 <div class="form-group">
                                     <select name="status" id="status" class="form-select">
                                         <option value="">--Select Status--</option>
 
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                        <option value="Pending">Pending</option>
+{{--                                        <option value="Pending">Pending</option>--}}
 
                                     </select>
 
@@ -74,17 +80,17 @@
                             </div>
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Remarks</strong></label>
-                                <textarea name="remarks" id="remarks" class="form-control"></textarea>
+                                <textarea name="remarks" id="remarks" class="form-control" required></textarea>
                             </div>
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Amount</strong></label>
-                                <input type="text" class="form-control" id="amount" name="amount"
+                                <input type="text" class="form-control" id="amount" name="amount" required
                                     placeholder="Enter Amount">
 
                             </div>
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Addmission at</strong></label>
-                                <input type="date" class="form-control" id="addmission_at" name="addmission_at"
+                                <input type="date" class="form-control" id="addmission_at" name="addmission_at" required
                                     placeholder="Enter Addmission Date">
 
                             </div>

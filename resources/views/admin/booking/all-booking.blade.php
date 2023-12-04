@@ -44,8 +44,9 @@
                                             <thead class="text-center">
                                             <tr>
 
-                                                <th width="100px">ID</th>
-                                                <th width="10px">Amount</th>
+                                                <th width="100px">Sl No.</th>
+                                                <th width="100px">Enquiry ID</th>
+                                                <th width="10px">Booking Amount</th>
                                                 <th width="10px">Status</th>
                                                 <th width="10px">Booking At</th>
                                                 <th width="10px">Action</th>
@@ -53,9 +54,10 @@
                                             </thead>
 
                                             <tbody>
-                                            @foreach($booking as $b)
+                                            @foreach($booking as $key => $b)
                                                 <tr>
 
+                                                    <td>{{ $key+1 }}</td>
                                                     <td>{{ $b->id }}</td>
                                                     <td>{{ $b->amount }}</td>
                                                     <td>
@@ -65,7 +67,7 @@
                                                             Admission Confirmed
                                                         @endif
                                                     </td>
-                                                    <td>{{ $b->creted_at }}</td>
+                                                    <td>{{ $b->created_at }}</td>
                                                     <td>
                                                         @if($b->status == 'i')
                                                             <a href="{{route('addmission',$b->enquiry_id)}}">
