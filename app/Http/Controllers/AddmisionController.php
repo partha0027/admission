@@ -41,7 +41,8 @@ class AddmisionController extends Controller
 
 
     {
-        $admissions = Admission::all();
+        // $admissions = Admission::all();
+        $admissions = Admission::paginate(10);
         return view('admin.addmission.addmission-view', compact('admissions'));
     }
 }

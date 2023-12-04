@@ -34,9 +34,9 @@
                             <div class="card shadow-sm">
                                 <div class="card-header">
                                     <h4 class="card-title">All Addmissions </h4>
-                                 
+
                                 </div>
-                               
+
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-condensed data-table table-hover"
@@ -53,9 +53,9 @@
                                             </thead>
 
                                             <tbody>
-                                                @foreach($admissions as $admission)
+                                                @foreach ($admissions as $admission)
                                                     <tr>
-                                                     
+
                                                         <td>{{ $admission->enquiry_id }}</td>
                                                         <td>{{ $admission->status }}</td>
                                                         <td>{{ $admission->remarks }}</td>
@@ -65,22 +65,25 @@
                                                 @endforeach
                                             </tbody>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            </tbody>
                                         </table>
+                                        {!! $admissions->render('pagination::bootstrap-5') !!}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>

@@ -34,7 +34,7 @@
                             <div class="card shadow-sm">
                                 <div class="card-header">
                                     <h4 class="card-title">All Enquiries </h4>
-                                    <a href="{{ route('enquiry') }}"  class="btn btn-primary"><i
+                                    <a href="{{ route('enquiry') }}" class="btn btn-primary"><i
                                             class="fa-solid fa-plus"></i> Add Enquiry</a>
 
                                 </div>

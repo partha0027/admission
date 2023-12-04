@@ -1,7 +1,7 @@
 <div class="nav-header">
     <a href="{{ route('admin.dashboard') }}" class="brand-logo">
         <img src="{{ asset('images/dz.png') }}" alt="iamge" width="110px">
-   
+
     </a>
 
     <div class="nav-control">
