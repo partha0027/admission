@@ -51,9 +51,7 @@
                                    class="form-control rounded-0 mt-2" placeholder="Password" required>
                             <div class="invalid-feedback"></div>
                         </div>
-                        <div class="mb-3">
-                            <a href="/forgot" class="text-decoration-none">Forgot Pasowrd?</a>
-                        </div>
+                      
                         <div class="mb-3 d-grid">
                             <input type="submit" value="Login" class="btn btn-primary btn-block rounded-0"
                                    id="login_btn">

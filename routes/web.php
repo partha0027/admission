@@ -64,6 +64,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');
 
+    // Booking
+
     Route::get('/booking/{id}', [\App\Http\Controllers\BookingController::class, 'booking'])->name('booking');
     Route::get('/booking-view', [\App\Http\Controllers\BookingController::class, 'bookingView'])->name('booking-view');
     Route::post('/booking-store', [\App\Http\Controllers\BookingController::class, 'bookingStore'])->name('booking-store');
