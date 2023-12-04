@@ -96,7 +96,7 @@
                             </div> --}}
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Count</strong></label>
-                                <input type="text" class="form-control" id="amount" name="amount" required
+                                <input type="text" class="form-control" id="amount" name="count" required
                                     placeholder="Enter Count">
 
                             </div>

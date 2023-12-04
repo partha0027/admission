@@ -86,7 +86,7 @@ class AddmisionController extends Controller
             'session' => 'required',
             'status' => 'required',
 
-            'amount' => 'required',
+            'count' => 'required',
             'addmission_at' => 'required',
         ]);
 
