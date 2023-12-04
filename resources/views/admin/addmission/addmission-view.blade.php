@@ -19,8 +19,8 @@
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Addmissions</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Addmissions</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Admissions</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Admissions</a></li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card shadow-sm">
                                 <div class="card-header">
-                                    <h4 class="card-title">All Addmissions </h4>
+                                    <h4 class="card-title">All Admissions </h4>
 
                                 </div>
 
@@ -54,7 +54,7 @@
 
                                             <tbody>
                                                 @foreach ($admissions as $admission)
-                                                    <tr>
+                                                    <tr class="text-center">
 
                                                         <td>{{ $admission->enquiry_id }}</td>
                                                         <td>{{ $admission->status }}</td>
@@ -68,26 +68,12 @@
                                         </table>
                                         {!! $admissions->render('pagination::bootstrap-5') !!}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="modal fade" id="course-modal" aria-hidden="true">
                             <div class="modal-dialog  modal-dialog-centered">
                                 <div class="modal-content">

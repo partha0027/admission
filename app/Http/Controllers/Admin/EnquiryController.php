@@ -36,7 +36,9 @@ class EnquiryController extends Controller
         $enquiry->address = $request->address;
         $enquiry->save();
 
-        return redirect()->back()->with('success', 'Form submitted successfully');
+        // return redirect()->back()->with('success', 'Form submitted successfully');
+
+        return redirect()->route('view-enquiry');
     }
 
 

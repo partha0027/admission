@@ -1,6 +1,6 @@
 <div class="nav-header">
     <a href="{{ route('admin.dashboard') }}" class="brand-logo">
-        <img src="{{ asset('images/dz.png') }}" alt="iamge" width="110px">
+        <img src="{{ asset('images/dz.png') }}" alt="iamge" width="110px" style="margin-left: 50px" class="logo-abbr">
 
     </a>
 

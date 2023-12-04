@@ -21,10 +21,10 @@
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-header">
-                        <h4 class="fw-bold  text-center">Addmission </h4>
+                        <h4 class="fw-bold  text-center">Admission </h4>
                         {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
                     </div>
-                    <div class="card-body p-5">
+                    <div class="card-body p-4">
                         <form action="{{ route('addmission-store') }}" id="DepartmentForm" name="Form"
                             class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
                             @if (session('success'))
@@ -36,28 +36,31 @@
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Details</strong></label>
                                 <br>
-                                <label class="mb-2"><strong>Phone: </strong>{{$enquiry->phone_no}}</label><br>
-                                <label class="mb-2"><strong>Name: </strong>{{$enquiry->full_name}}</label><br>
-                                <label class="mb-2"><strong>Address: </strong>{{$enquiry->address}}</label><br>
-                                <label class="mb-2"><strong>Course: </strong>{{$enquiry->course_title}}</label><br><br>
-                                <input type="hidden" name="enquiry_id" value="{{$enquiry->id}}">
-{{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0">--}}
+                                <label class="mb-2"><strong>Phone: </strong>{{ $enquiry->phone_no }}</label><br>
+                                <label class="mb-2"><strong>Name: </strong>{{ $enquiry->full_name }}</label><br>
+                                <label class="mb-2"><strong>Address: </strong>{{ $enquiry->address }}</label><br>
+                                <label class="mb-2"><strong>Course:
+                                    </strong>{{ $enquiry->course_title }}</label><br>
+                                <label class="mb-2"><strong>Amount: </strong>{{ $amount->amount }}</label>
+                                <input type="hidden" name="enquiry_id" value="{{ $enquiry->id }}">
 
-{{--                                    <option value="">-- Select Enquiry ID --</option>--}}
-{{--                                    @foreach ($enquiry as $data)--}}
-{{--                                        <option value="   {{ $data->id }}">--}}
-{{--                                            {{ $data->id }}--}}
-{{--                                        </option>--}}
-{{--                                    @endforeach--}}
+                                {{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0"> --}}
 
-{{--                                </select>--}}
+                                {{--                                    <option value="">-- Select Enquiry ID --</option> --}}
+                                {{--                                    @foreach ($enquiry as $data) --}}
+                                {{--                                        <option value="   {{ $data->id }}"> --}}
+                                {{--                                            {{ $data->id }} --}}
+                                {{--                                        </option> --}}
+                                {{--                                    @endforeach --}}
+
+                                {{--                                </select> --}}
 
 
                             </div>
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Statuss</strong></label>
+                                <label class="mb-2"><strong>Status</strong></label>
                                 <div class="form-group">
-                                    <select name="status" id="status" class="form-select rounded-0">
+                                    <select name="status" id="status" class="form-select">
                                         <option value="">--Select Status--</option>
 
                                         <option value="Yes">Yes</option>
@@ -86,16 +89,10 @@
 
                             </div>
 
-
-
-
-
                             <div class="mt-3 d-grid">
                                 <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
                                     id="login_btn">
                             </div>
-
-
 
                         </form>
 
@@ -107,7 +104,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

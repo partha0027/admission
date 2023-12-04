@@ -8,6 +8,15 @@
                 </a>
 
             </li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <i class="la la-building"></i>
+                <span class="nav-text">Enquiry</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ route('view-enquiry') }}">View Enquiry</a></li>
+
+            </ul>
+        </li>
 
 
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -15,19 +24,11 @@
                     <span class="nav-text">Addmission</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('view-add') }}">All Addmissions</a></li>
+                    <li><a href="{{ route('view-add') }}">All Admissions</a></li>
 
                 </ul>
             </li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="la la-building"></i>
-                    <span class="nav-text">Enquiry</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li><a href="{{ route('view-enquiry') }}">View Enquiry</a></li>
-
-                </ul>
-            </li>
+        
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-building"></i>
                     <span class="nav-text">Booking</span>

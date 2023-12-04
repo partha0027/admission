@@ -13,10 +13,10 @@
                         <div class="col-xl-6 col-xxl-6 col-sm-6">
                             <div class="widget-stat card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Total Addmissions</h4>
-                                    <h3>3280</h3>
+                                    <h4 class="card-title">Total Enquiry</h4>
+                                    <h3>{{ $enquiry }}</h3>
                                     <div class="progress mb-2">
-                                        <div class="progress-bar progress-animated bg-primary" style="width: 80%">
+                                        <div class="progress-bar progress-animated bg-primary" style="width: 10%">
                                         </div>
                                     </div>
                                     <small>80% Increase in 20 Days</small>
@@ -26,8 +26,8 @@
                         <div class="col-xl-6 col-xxl-6 col-sm-6">
                             <div class="widget-stat card">
                                 <div class="card-body">
-                                    <h4 class="card-title">New Addmissions</h4>
-                                    <h3>245</h3>
+                                    <h4 class="card-title">Total Bookings</h4>
+                                    <h3>{{ $totalBooking }}</h3>
                                     <div class="progress mb-2">
                                         <div class="progress-bar progress-animated bg-warning" style="width: 50%">
                                         </div>
@@ -40,8 +40,21 @@
                         <div class="col-xl-6 col-xxl-6 col-sm-6">
                             <div class="widget-stat card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Fees Collection</h4>
-                                    <h3>25160$</h3>
+                                    <h4 class="card-title">Total Admissions</h4>
+                                    <h3>{{ $totalAdmissions }}</h3>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar progress-animated bg-success" style="width: 30%">
+                                        </div>
+                                    </div>
+                                    <small>30% Increase in 30 Days</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-xxl-6 col-sm-6">
+                            <div class="widget-stat card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Total Fees</h4>
+                                    <h3>{{  $totalFees }}</h3>
                                     <div class="progress mb-2">
                                         <div class="progress-bar progress-animated bg-success" style="width: 30%">
                                         </div>

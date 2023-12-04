@@ -38,35 +38,12 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}
                         </div>
-<<<<<<< HEAD
-                        @if (session('message'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        <form action="{{ route('enquiry-store') }}" id="DepartmentForm" name="Form"
-                            class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
-                            @if (session('success'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                            @csrf
-
-                            <input type="hidden" name="id" id="id">
-
-                            <div class="mb-2">
-                                <label class="mb-2"><strong>Enter Phone Number</strong></label>
-                                <input type="text" class="form-control" id="phone_no" name="phone_no"
-                                    placeholder="Enter Phone Number" maxlength="50" required="">
-=======
                     @endif
                     <form action="{{ route('enquiry-store') }}" id="DepartmentForm" name="Form"
                           class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
                         @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
                             </div>
                         @endif
                         @csrf
@@ -86,7 +63,6 @@
                                    placeholder="Enter Full Name" maxlength="50" required="">
                         </div>
 
-<<<<<<< HEAD
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Enter Addresse</strong></label>
                                 <textarea class="form-control" name="address" placeholder="Address"></textarea>
@@ -160,26 +136,10 @@
                                     <option value="Diploma in Movie Editing & Compositing ">Diploma in Movie Editing &
                                         Compositing </option>
                                     <option value="Certificate Course on Editing">Certificate Course on Editing</option>
+                                </select>
                             </div>
-=======
-                        <div class="mb-2">
-                            <label class="mb-2"><strong>Enter Addresse</strong></label>
-                            <textarea class="form-control" name="address" placeholder="Address"></textarea>
 
-                        </div>
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
-
-                        <div class="mb-2">
-                            <label class="mb-2"><strong>Enter Course Name</strong></label>
-                            <select name="course_title" id="course_title" class="form-select"
-                                    aria-label="Default select example">
-                                <option selected>--Select Course --</option>
-                                <option value="course1">Course 1</option>
-                                <option value="course2">Course 2</option>
-                                <option value="course3">Course 3</option>
-
-                            </select>
-                        </div>
+                 
 
                         <div class="mb-2">
                             <label class="mb-2"><strong>Source</strong></label>
@@ -188,7 +148,6 @@
                         </div>
 
 
-<<<<<<< HEAD
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Comment</strong></label>
                                 <div class="col-sm-12">
@@ -200,44 +159,22 @@
                                 <label class="mb-2"><strong>Enquiry At</strong></label>
                                 <input type="date" class="form-control" id="enquiry_at" name="enquiry_at"
                                     placeholder="Enter Joining Date">
-=======
-                        <div class="mb-2">
-                            <label class="mb-2"><strong>Comment</strong></label>
-                            <div class="col-sm-12">
-                                <textarea name="comment" id="comment" class="form-control"></textarea>
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
 
                             </div>
-                        </div>
-                        <div class="mb-2">
-                            <label class="mb-2"><strong>Enquiry At</strong></label>
-                            <input type="date" class="form-control" id="enquiry_at" name="enquiry_at"
-                                   placeholder="Enter Joining Date">
-
-                        </div>
+                       
 
 
-<<<<<<< HEAD
                             <div class="mt-3 d-grid">
                                 <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
                                     id="login_btn">
                             </div>
-=======
-                        <div class="mt-3 d-grid">
-                            <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
-                                   id="login_btn">
-                        </div>
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
 
 
                     </form>
 
 
-<<<<<<< HEAD
                     </div>
 
-=======
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
                 </div>
 
             </div>
@@ -248,7 +185,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-<<<<<<< HEAD
         <
         script
         src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -256,26 +192,10 @@
         crossorigin = "anonymous" >
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-=======
-    <
-    script
-    src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity = "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin = "anonymous" >
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
 </script>
 </script>
 
-<<<<<<< HEAD
     < /body>
 
         < /html>
-=======
-<
-/body>
-
-< /html>
->>>>>>> 4ab92eaa1a9fe5e72dc10992a99ca64f48a02871
