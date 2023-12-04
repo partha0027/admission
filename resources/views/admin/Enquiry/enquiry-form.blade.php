@@ -25,7 +25,7 @@
                     <h4 class="fw-bold  text-center">Enquiry </h4>
                     {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
                 </div>
-                <div class="card-body p-5">
+                <div class="card-body">
                     <div id="login_alert">
                         @if (Session::get('error'))
                             <div class="alert alert-danger fw-bold" role="alert">

@@ -32,15 +32,15 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                                @if (Session::get('error'))
-                                    <div class="alert alert-danger fw-bold" role="alert">
-                                        {{ Session::get('error') }}
+                            @if (Session::get('error'))
+                                <div class="alert alert-danger fw-bold" role="alert">
+                                    {{ Session::get('error') }}
 
-                                    </div>
-                                @endif
+                                </div>
+                            @endif
                             @csrf
                             <div class="mb-2">
-                              
+
 
                                 {{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0"> --}}
 
@@ -65,7 +65,7 @@
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
                                         <option value="2020">2020</option>
-{{--                                        <option value="Pending">Pending</option>--}}
+                                        {{--                                        <option value="Pending">Pending</option> --}}
 
                                     </select>
 
@@ -83,27 +83,43 @@
 
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-{{--                                        <option value="Pending">Pending</option>--}}
+                                        {{--                                        <option value="Pending">Pending</option> --}}
 
                                     </select>
 
                                 </div>
 
                             </div>
-                            <div class="mb-2">
+                            {{-- <div class="mb-2">
                                 <label class="mb-2"><strong>Remarks</strong></label>
-                                <textarea name="remarks" id="remarks" class="form-control" required></textarea>
-                            </div>
+                                <textarea name="remarks" id="remarks" class="form-control"></textarea>
+                            </div> --}}
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Amount</strong></label>
+                                <label class="mb-2"><strong>Count</strong></label>
                                 <input type="text" class="form-control" id="amount" name="amount" required
-                                    placeholder="Enter Amount">
+                                    placeholder="Enter Count">
 
                             </div>
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Addmission at</strong></label>
-                                <input type="date" class="form-control" id="addmission_at" name="addmission_at" required
-                                    placeholder="Enter Addmission Date">
+                                {{-- <input type="date" class="form-control" id="addmission_at" name="addmission_at"
+                                    required placeholder="Enter Addmission Date">  --}}
+
+                                <select name="addmission_at" id="addmission_at" class="form-select">
+                                    <option value=''>--Select Month--</option>
+                                    <option selected value='1'>Janaury</option>
+                                    <option value='2'>February</option>
+                                    <option value='3'>March</option>
+                                    <option value='4'>April</option>
+                                    <option value='5'>May</option>
+                                    <option value='6'>June</option>
+                                    <option value='7'>July</option>
+                                    <option value='8'>August</option>
+                                    <option value='9'>September</option>
+                                    <option value='10'>October</option>
+                                    <option value='11'>November</option>
+                                    <option value='12'>December</option>
+                                </select>
 
                             </div>
 

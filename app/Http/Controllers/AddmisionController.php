@@ -88,7 +88,7 @@ class AddmisionController extends Controller
         $request->validate([
             'session' => 'required',
             'status' => 'required',
-            'remarks' => 'required',
+        
             'amount' => 'required',
             'addmission_at' => 'required',
         ]);
@@ -98,7 +98,7 @@ class AddmisionController extends Controller
 
         $enquiry->session = $request->session;
         $enquiry->status = $request->status;
-        $enquiry->remarks = $request->remarks;
+   
         $enquiry->amount = $request->amount;
         $enquiry->addmission_at = $request->addmission_at;
 

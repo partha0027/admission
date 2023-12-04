@@ -13,7 +13,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>All Addmissions</h4>
+                        <h4>All Admissions</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -34,11 +34,13 @@
                             <div class="card shadow-sm">
                                 <div class="card-header">
                                     <h4 class="card-title">All Admissions </h4>
-                                    <a href="{{ route('addmission-view-old') }}">
-                                        <button class="btn btn-sm btn-primary">Add New</button>
+                                    <a href="{{ route('addmission-view-old') }}" class="btn btn-primary">
+                                        <i class="fa-solid fa-plus"></i> Add New
                                     </a>
 
                                 </div>
+
+
 
 
                                 <div class="card-body">
@@ -48,7 +50,7 @@
                                         </div>
                                     @endif
                                     <div class="table-responsive">
-                                      
+
                                         <table class="table table-bordered table-condensed data-table table-hover"
                                             id="ajax-crud-datatable">
                                             <thead class="text-center">
@@ -57,8 +59,8 @@
                                                     <th width="100px">Sl No.</th>
                                                     <th width="100px">Session</th>
                                                     <th width="100px">Admission Status</th>
-                                                    <th width="10px">Remarks</th>
-                                                    <th width="10px">Amount</th>
+                                                    {{-- <th width="10px">Remarks</th> --}}
+                                                    <th width="10px">Count</th>
                                                     <th width="10px">Addmission At</th>
                                                 </tr>
                                             </thead>
@@ -70,7 +72,7 @@
                                                         <td>{{ $key + 1 }}</td>
                                                         <td>{{ $admission->session }}</td>
                                                         <td>{{ $admission->status }}</td>
-                                                        <td>{{ $admission->remarks }}</td>
+                                                        {{-- <td>{{ $admission->remarks }}</td> --}}
                                                         <td>{{ $admission->amount }}</td>
                                                         <td>{{ $admission->addmission_at }}</td>
                                                     </tr>
