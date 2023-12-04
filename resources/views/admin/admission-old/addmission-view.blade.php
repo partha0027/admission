@@ -73,7 +73,7 @@
                                                         <td>{{ $admission->session }}</td>
                                                         <td>{{ $admission->status }}</td>
                                                         {{-- <td>{{ $admission->remarks }}</td> --}}
-                                                        <td>{{ $admission->count }}</td>
+                                                        <td>{{ $admission->count }} Students</td>
                                                         <td>
                                                             @php
                                                                 $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
