@@ -105,7 +105,7 @@
                                 {{-- <input type="date" class="form-control" id="addmission_at" name="addmission_at"
                                     required placeholder="Enter Addmission Date">  --}}
 
-                                <select name="addmission_at" id="addmission_at" class="form-select">
+                                <select name="month" id="addmission_at" class="form-select">
                                     <option value='' selected>--Select Month--</option>
                                     <option  value='1'>Janaury</option>
                                     <option value='2'>February</option>

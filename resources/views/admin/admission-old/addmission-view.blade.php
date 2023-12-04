@@ -61,7 +61,7 @@
                                                     <th width="100px">Admission Status</th>
                                                     {{-- <th width="10px">Remarks</th> --}}
                                                     <th width="10px">Admission Count</th>
-                                                    <th width="10px">Montht</th>
+                                                    <th width="10px">Month</th>
                                                 </tr>
                                             </thead>
 
@@ -74,7 +74,12 @@
                                                         <td>{{ $admission->status }}</td>
                                                         {{-- <td>{{ $admission->remarks }}</td> --}}
                                                         <td>{{ $admission->count }}</td>
-                                                        <td>{{ $admission->month }}</td>
+                                                        <td>{{ $admission->month }}
+                                                            @php
+                                                                $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+                                                            @endphp
+                                                            {{$month[$admission->month]}}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

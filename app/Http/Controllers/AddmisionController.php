@@ -87,7 +87,7 @@ class AddmisionController extends Controller
             'status' => 'required',
 
             'count' => 'required',
-            'addmission_at' => 'required',
+            'month' => 'required',
         ]);
 
         $enquiry = new OldAdmission();
