@@ -24,7 +24,7 @@
                     </ol>
                 </div> --}}
             </div>
-            <div id="alertContainer"></div>
+
 
             <div class="row">
 
@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     @if (Session::has('success'))
                                         <div class="alert alert-success">
-                                            {{ Session::get('success') }}
+                                            <strong>{{ Session::get('success') }}</strong>
                                         </div>
                                     @endif
                                     <div class="table-responsive">

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Dreamzone - Old Admission</title>
+    <title>Dreamzone - Edit Admission</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/dz.png') }}" />
@@ -25,7 +25,7 @@
                         {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
                     </div>
                     <div class="card-body p-4">
-                        <form action="{{ route('addmission-store-old') }}" id="DepartmentForm" name="Form"
+                        <form action="{{ route('update-old', $admissions->id) }}" id="DepartmentForm" name="Form"
                             class="form-horizontal" method="POST" enctype="multipart/form-data" method="POST">
                             @if (session('success'))
                                 <div class="alert alert-success" role="alert">
@@ -52,10 +52,14 @@
                                         class="form-select @error('session') is-invalid @enderror">
                                         <option value="">--Select Session--</option>
 
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
+                                        <option value="2023" @if ($admissions->session == '2023') selected @endif>2023
+                                        </option>
+                                        <option value="2022" @if ($admissions->session == '2022') selected @endif>2022
+                                        </option>
+                                        <option value="2021" @if ($admissions->session == '2021') selected @endif>2021
+                                        </option>
+                                        <option value="2020" @if ($admissions->session == '2020') selected @endif>2020
+                                        </option>
 
 
 
@@ -74,11 +78,13 @@
                                 <label class="mb-2"><strong>Admission Status</strong></label>
                                 <div class="form-group">
                                     <select name="status" id="status" value="{{ old('status') }}"
-                                        class="form-select @error('status') is-invalid @enderror">
+                                        class="form-select @error('status') is-invalid @enderror" value="">
                                         <option value="">--Select Status--</option>
 
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="Yes" @if ($admissions->status == 'Yes') selected @endif>Yes
+                                        </option>
+                                        <option value="No" @if ($admissions->status == 'No') selected @endif>No
+                                        </option>
 
 
                                     </select>
@@ -93,7 +99,7 @@
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Count</strong></label>
                                 <input type="text" class="form-control" id="amount" name="count" required
-                                    placeholder="Enter Count"
+                                    placeholder="Enter Count" value="{{ $admissions->count }}"
                                     oninput="this.value = this.value.replace(/[^0-9 ]/g, '').replace(/(\..*)\./g, '$1');">
 
                             </div>
@@ -101,22 +107,34 @@
                                 <label class="mb-2"><strong>Month</strong></label>
 
 
-                                <select name="month" id="month"
+                                <select name="month" id="month" value = "{{ $admissions->month }}"
                                     class="form-select  @error('month') is-invalid @enderror"
                                     value="{{ old('month') }}">
                                     <option value='' selected>--Select Month--</option>
-                                    <option value='0'>Janaury</option>
-                                    <option value='1'>February</option>
-                                    <option value='2'>March</option>
-                                    <option value='3'>April</option>
-                                    <option value='4'>May</option>
-                                    <option value='5'>June</option>
-                                    <option value='6'>July</option>
-                                    <option value='7'>August</option>
-                                    <option value='8'>September</option>
-                                    <option value='9'>October</option>
-                                    <option value='10'>November</option>
-                                    <option value='11'>December</option>
+                                    <option value='0' @if ($admissions->month == '0') selected @endif>Janaury
+                                    </option>
+                                    <option value='1' @if ($admissions->month == '1') selected @endif>February
+                                    </option>
+                                    <option value='2' @if ($admissions->month == '2') selected @endif>March
+                                    </option>
+                                    <option value='3' @if ($admissions->month == '3') selected @endif>April
+                                    </option>
+                                    <option value='4' @if ($admissions->month == '4') selected @endif>May
+                                    </option>
+                                    <option value='5' @if ($admissions->month == '5') selected @endif>June
+                                    </option>
+                                    <option value='6' @if ($admissions->month == '6') selected @endif>July
+                                    </option>
+                                    <option value='7' @if ($admissions->month == '7') selected @endif>August
+                                    </option>
+                                    <option value='8' @if ($admissions->month == '8') selected @endif>September
+                                    </option>
+                                    <option value='9' @if ($admissions->month == '9') selected @endif>October
+                                    </option>
+                                    <option value='10' @if ($admissions->month == '10') selected @endif>November
+                                    </option>
+                                    <option value='11' @if ($admissions->month == '11') selected @endif>December
+                                    </option>
                                 </select>
 
                                 @error('month')

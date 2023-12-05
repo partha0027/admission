@@ -73,11 +73,24 @@ class AddmisionController extends Controller
 
     }
 
-    public function addmissionViewOld()
+    public function getAdd()
     {
-
-        return view('admin.admission-old.addmission-form');
+        // $admissions = Admission::all();
+        $admissions = Admission::paginate(10);
+        return view('admin.addmission.addmission-view', compact('admissions'));
     }
+
+
+
+
+
+
+
+
+    //OLD ADMISSION
+
+
+
 
 
     public function admitStoreOld(Request $request)
@@ -101,30 +114,16 @@ class AddmisionController extends Controller
 
         $enquiry->save();
 
-
-        // return redirect()->back()->with('success', 'Form submitted successfully.');
-
-        // return view("admin.index");
-
-        return redirect()->route('view-add-old')->with('success', 'Admission done successfully');
-        // return redirect()->route('addmission-view')->with('success', 'Form submitted successfully.');
-
-
-
-
-
+        return redirect()->route('view-add-old')->with('success', 'Old Admission data submitted successfully');
     }
 
-    public function getAdd()
+
+
+    public function addmissionViewOld()
     {
-        // $admissions = Admission::all();
-        $admissions = Admission::paginate(10);
-        return view('admin.addmission.addmission-view', compact('admissions'));
+
+        return view('admin.admission-old.addmission-form');
     }
-
-
-
-
 
 
     public function getAddOld()
@@ -132,5 +131,26 @@ class AddmisionController extends Controller
         // $admissions = Admission::all();
         $admissions = OldAdmission::paginate(10);
         return view('admin.admission-old.addmission-view', compact('admissions'));
+    }
+
+
+    public function EditOld($id)
+    {
+        $admissions = OldAdmission::findOrFail($id);
+        return view('admin.admission-old.addmission-edit', compact('admissions'));
+    }
+
+    public function UpdateOld(Request $request, $id)
+    {
+
+        $admissions = OldAdmission::findOrFail($id);
+        $admissions->session = $request->session;
+        $admissions->status = $request->status;
+        $admissions->count = $request->count;
+        $admissions->month = $request->month;
+
+        $admissions->save();
+
+        return redirect()->route('view-add-old')->with('success', 'Old Admission data updated successfully');
     }
 }

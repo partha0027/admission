@@ -11,14 +11,15 @@ class BookingController extends Controller
 {
     public function booking($id)
     {
-//        $booking = Booking::where('id',$id)->first();dd($booking);
-        $en = Enquiry::where('id',$id)->first();
+        //        $booking = Booking::where('id',$id)->first();dd($booking);
+        $en = Enquiry::where('id', $id)->first();
         return view('admin.booking.booking-form', compact('en'));
     }
 
     public function bookingView()
     {
-        $booking = Booking::get();
+        $booking = Booking::paginate(10);
+
         return view('admin.booking.booking-view', compact('booking'));
     }
 
@@ -27,7 +28,7 @@ class BookingController extends Controller
         $request->validate([
             'enquiry_id' => 'required',
             'amount' => 'required',
-            'comment'=> 'required'
+            'comment' => 'required'
         ]);
 
         $enquiry = new Booking();
@@ -38,7 +39,7 @@ class BookingController extends Controller
         $enquiry->comment = $request->comment;
         $enquiry->save();
 
-        $en = Enquiry::where('id',$request->enquiry_id)->first();
+        $en = Enquiry::where('id', $request->enquiry_id)->first();
         $en->status = 'b';
         $en->update();
 

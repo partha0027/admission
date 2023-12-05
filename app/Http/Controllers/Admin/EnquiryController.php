@@ -51,10 +51,10 @@ class EnquiryController extends Controller
 
     public function followUp($id)
     {
-        $data = Enquiry::where('id',$id)->first();
+        $data = Enquiry::where('id', $id)->first();
         $followUp = $data->follow_up + 1;
         $data->follow_up = $followUp;
         $data->update();
-        return redirect()->back()->with('success','Follow-Up add.');
+        return redirect()->back()->with('success', 'Follow-Up add.');
     }
 }

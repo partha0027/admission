@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Edumin - Bootstrap Admin Dashboard</title>
+    <title>Dreamzone - Addmission </title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/dz.png') }}" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -32,12 +32,12 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                                @if (Session::get('error'))
-                                    <div class="alert alert-danger fw-bold" role="alert">
-                                        {{ Session::get('error') }}
+                            @if (Session::get('error'))
+                                <div class="alert alert-danger fw-bold" role="alert">
+                                    {{ Session::get('error') }}
 
-                                    </div>
-                                @endif
+                                </div>
+                            @endif
                             @csrf
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Details</strong></label>
@@ -47,7 +47,8 @@
                                 <label class="mb-2"><strong>Address: </strong>{{ $enquiry->address }}</label><br>
                                 <label class="mb-2"><strong>Course:
                                     </strong>{{ $enquiry->course_title }}</label><br>
-                                <label class="mb-2"><strong>Booking Amount: </strong>{{ $amount->amount ?? 'N/A' }}</label>
+                                <label class="mb-2"><strong>Booking Amount:
+                                    </strong>{{ $amount->amount ?? 'N/A' }}</label>
                                 <input type="hidden" name="enquiry_id" value="{{ $enquiry->id }}">
 
                                 {{--                                <select name="enquiry_id" id="enquiry_id" class="form-select rounded-0"> --}}
@@ -64,34 +65,63 @@
 
                             </div>
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Admission Status</strong></label>
+                                <label class=""><strong>Admission Status</strong></label>
                                 <div class="form-group">
-                                    <select name="status" id="status" class="form-select">
+                                    <select name="status" id="status"
+                                        class="form-select @error('status') is-invalid @enderror"
+                                        value = "{{ old('status') }}">
                                         <option value="">--Select Status--</option>
 
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-{{--                                        <option value="Pending">Pending</option>--}}
+
 
                                     </select>
+                                    @error('status')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+
 
                                 </div>
 
                             </div>
+
+
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Remarks</strong></label>
-                                <textarea name="remarks" id="remarks" class="form-control" required></textarea>
+                                <label class=""><strong>Remarks</strong></label>
+                                <textarea name="remarks" id="remarks" class="form-control  @error('remarks') is-invalid @enderror" required
+                                    value="{{ old('remarks') }}"></textarea>
+
+                                @error('remarks')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
+
+
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Amount</strong></label>
-                                <input type="text" class="form-control" id="amount" name="amount" required
-                                    placeholder="Enter Amount">
+                                <label class=""><strong>Amount</strong></label>
+                                <input type="text" class="form-control  @error('amount') is-invalid @enderror"
+                                    id="amount" name="amount" required placeholder="Enter Amount"
+                                    value="{{ old('amount') }}"
+                                    oninput="this.value = this.value.replace(/[^0-9 ]/g, '').replace(/(\..*)\./g, '$1');">
+
+                                @error('amount')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
 
                             </div>
+
+
                             <div class="mb-2">
-                                <label class="mb-2"><strong>Addmission at</strong></label>
-                                <input type="date" class="form-control" id="addmission_at" name="addmission_at" required
+                                <label class=""><strong>Addmission at</strong></label>
+                                <input type="date" class="form-control  @error('addmission_at') is-invalid @enderror"
+                                    id="addmission_at" name="addmission_at" required value="{{ old('addmission_at') }}"
                                     placeholder="Enter Addmission Date">
+
+                                @error('addmission_at')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+
 
                             </div>
 

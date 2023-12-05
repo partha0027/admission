@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    All Departments
+    All Admission
 @endsection
 
 
@@ -40,8 +40,13 @@
 
                                 <div class="card-body">
                                     @if (Session::has('success'))
-                                        <div class="alert alert-success">
-                                            {{ Session::get('success') }}
+                                        {{-- <div class="alert alert-success">
+                                               
+                                            </div> --}}
+
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong> {{ Session::get('success') }}</strong>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
                                         </div>
                                     @endif
                                     <div class="table-responsive">

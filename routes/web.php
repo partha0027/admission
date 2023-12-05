@@ -60,6 +60,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/addmission-view-old', [AddmisionController::class, 'addmissionViewOld'])->name('addmission-view-old');
     Route::post('/addmission-store-old', [AddmisionController::class, 'admitStoreOld'])->name('addmission-store-old');
 
+    Route::get('edit-old/{id}', [AddmisionController::class, 'EditOld'])->name('edit-old');
+    Route::post('update-old/{id}', [AddmisionController::class, 'UpdateOld'])->name('update-old');
+  
+  
+
 
 
     Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');

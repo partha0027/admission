@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    All Departments
+    All Bookings
 @endsection
 
 
@@ -39,11 +39,17 @@
 
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        @if(Session::has('success'))
-                                        <div class="alert alert-success">
-                                            {{ Session::get('success') }}
-                                        </div>
-                                    @endif
+                                        @if (Session::has('success'))
+                                            {{-- <div class="alert alert-success">
+                                               
+                                            </div> --}}
+
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <strong> {{ Session::get('success') }}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                        @endif
                                         <table class="table table-bordered table-condensed data-table table-hover"
                                             id="ajax-crud-datatable">
                                             <thead class="text-center">
@@ -59,7 +65,7 @@
                                                 </tr>
                                             </thead>
 
-                                            <tbody>
+                                            <tbody class="text-center">
                                                 @foreach ($booking as $key => $b)
                                                     <tr>
 
@@ -90,6 +96,7 @@
 
                                             </tbody>
                                         </table>
+                                        {!! $booking->render('pagination::bootstrap-5') !!}
                                     </div>
                                 </div>
                             </div>

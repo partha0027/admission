@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    All Departments
+    All Old Admissions
 @endsection
 
 
@@ -13,7 +13,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>All Admissions</h4>
+                        <h4>All Old Admissions</h4>
                     </div>
                 </div>
                 {{-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -37,6 +37,7 @@
                                     <a href="{{ route('addmission-view-old') }}" class="btn btn-primary">
                                         <i class="fa-solid fa-plus"></i> Add New
                                     </a>
+                                    
 
                                 </div>
 
@@ -46,7 +47,7 @@
                                 <div class="card-body">
                                     @if (Session::has('success'))
                                         <div class="alert alert-success">
-                                            {{ Session::get('success') }}
+                                            <strong>{{ Session::get('success') }}</strong>
                                         </div>
                                     @endif
                                     <div class="table-responsive">
@@ -62,6 +63,7 @@
                                                     {{-- <th width="10px">Remarks</th> --}}
                                                     <th width="10px">Admission Count</th>
                                                     <th width="10px">Month</th>
+                                                    <th width="10px">Action</th>
                                                 </tr>
                                             </thead>
 
@@ -79,6 +81,13 @@
                                                                 $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                                                             @endphp
                                                             {{$month[$admission->month]}}
+                                                        </td>
+                                                        <td>
+
+                                                            <a href="{{ route('edit-old', $admission->id) }}" class="btn btn-sm btn-primary">
+                                                                <i class="fa-solid fa-edit"></i> Edit
+                                                            </a>
+
                                                         </td>
                                                     </tr>
                                                 @endforeach
