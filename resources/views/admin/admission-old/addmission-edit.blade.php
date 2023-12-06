@@ -39,12 +39,7 @@
                                 </div>
                             @endif
                             @csrf
-                            <div class="mb-2">
 
-
-
-
-                            </div>
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Session</strong></label>
                                 <div class="form-group">
@@ -71,8 +66,6 @@
                                 </div>
 
                             </div>
-
-
 
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Status</strong></label>
@@ -101,8 +94,8 @@
                                 <input type="text" class="form-control" id="amount" name="count" required
                                     placeholder="Enter Count" value="{{ $admissions->count }}"
                                     oninput="this.value = this.value.replace(/[^0-9 ]/g, '').replace(/(\..*)\./g, '$1');">
-
                             </div>
+
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Month</strong></label>
 
@@ -143,15 +136,14 @@
 
                             </div>
 
+
                             <div class="mt-3 d-grid">
-                                <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
+                                <input type="submit" value="Update" class="btn btn-primary btn-block rounded-0"
                                     id="login_btn">
                             </div>
 
 
                         </form>
-
-
 
                     </div>
 
@@ -159,6 +151,9 @@
             </div>
         </div>
     </div>
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

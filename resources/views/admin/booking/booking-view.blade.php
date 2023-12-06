@@ -40,14 +40,13 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         @if (Session::has('success'))
-                                            {{-- <div class="alert alert-success">
-                                               
-                                            </div> --}}
-
                                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                <strong> {{ Session::get('success') }}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="Close"></button>
+                                                <strong>{{ Session::get('success') }}</strong>
+
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
                                         @endif
                                         <table class="table table-bordered table-condensed data-table table-hover"
@@ -55,13 +54,13 @@
                                             <thead class="text-center">
                                                 <tr>
 
-                                                    <th width="100px">Sl No.</th>
-                                                    <th width="100px">Enquiry ID</th>
-                                                    <th width="10px">Booking Amount</th>
-                                                    <th width="10px">Comment</th>
-                                                    <th width="10px">Status</th>
-                                                    <th width="10px">Booking At</th>
-                                                    <th width="10px">Action</th>
+                                                    <th>Sl No.</th>
+                                                    <th>Enquiry ID</th>
+                                                    <th>Booking Amount</th>
+                                                    <th>Comment</th>
+                                                    <th>Status</th>
+                                                    <th>Booking At</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
 

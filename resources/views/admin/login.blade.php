@@ -10,7 +10,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/dz.png" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/skin.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/skin.css') }}"> --}}
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -28,14 +28,14 @@
 
 
         </div>
-     
-        <div class="row d-flex justify-content-center align-items-center">
+
+        <div class="row d-flex justify-content-center align-items-center in-vh-100">
             <div class="col-md-4">
                 <div class="card shadow-sm">
-                  
+
                     <div class="card-header">
-                        <h4 class="fw-bold  text-center">Login </h4>
-                        {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
+
+                        <h4 class="fw-bold text-center">Login </h4>
                     </div>
                     <div class="card-body p-5">
                         <div id="login_alert">
@@ -88,6 +88,11 @@
     @include('admin.login-js')
 
 
+
+
 </body>
 
 </html>
+
+
+

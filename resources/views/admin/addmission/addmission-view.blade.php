@@ -40,13 +40,12 @@
 
                                 <div class="card-body">
                                     @if (Session::has('success'))
-                                        {{-- <div class="alert alert-success">
-                                               
-                                            </div> --}}
-
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <strong> {{ Session::get('success') }}</strong>
-                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                            <strong>{{ Session::get('success') }}</strong>
+
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                     @endif
                                     <div class="table-responsive">
@@ -55,12 +54,12 @@
                                             <thead class="text-center">
                                                 <tr>
 
-                                                    <th width="100px">Sl No.</th>
-                                                    <th width="100px">Enquiry ID</th>
-                                                    <th width="100px">Admission Status</th>
-                                                    <th width="10px">Remarks</th>
-                                                    <th width="10px">Amount</th>
-                                                    <th width="10px">Addmission At</th>
+                                                    <th>Sl No.</th>
+                                                    <th>Enquiry ID</th>
+                                                    <th>Admission Status</th>
+                                                    <th>Remarks</th>
+                                                    <th>Amount</th>
+                                                    <th>Addmission At</th>
                                                 </tr>
                                             </thead>
 

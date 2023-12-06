@@ -41,8 +41,12 @@
 
                                 <div class="card-body">
                                     @if (Session::has('success'))
-                                        <div class="alert alert-success">
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong>{{ Session::get('success') }}</strong>
+
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                     @endif
                                     <div class="table-responsive">
@@ -51,19 +55,19 @@
                                             <thead class="text-center">
                                                 <tr>
 
-                                                    <th width="10px">Sl No</th>
-                                                    <th width="100px">Phone No</th>
-                                                    <th width="100px">Full Name</th>
-                                                    <th width="100px">Address</th>
-                                                    <th width="10px">Course Title</th>
-                                                    <th width="10px">Source</th>
+                                                    <th>Sl No</th>
+                                                    <th>Phone No</th>
+                                                    <th>Full Name</th>
+                                                    <th>Address</th>
+                                                    <th>Course Title</th>
+                                                    <th>Source</th>
 
 
-                                                    <th width="10px">Follow-Up</th>
-                                                    <th width="10px">Status</th>
-                                                    <th width="10px">Enquiry Date</th>
-                                                    <th width="10px">Comment</th>
-                                                    <th width="10px">Action</th>
+                                                    <th>Follow-Up</th>
+                                                    <th>Status</th>
+                                                    <th>Enquiry Date</th>
+                                                    <th>Comment</th>
+                                                    <th>Action</th>
 
                                                 </tr>
                                             </thead>

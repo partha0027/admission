@@ -76,14 +76,6 @@ class AdminController extends Controller
             return back()->withInput($request->only('error'));
         }
 
-
-
-
-
-
-
-
-
         //            $user = Admin::where('email', $request->email)->first();
         //            if ($user) {
         //                if (Hash::check($request->password, $user->password)) {

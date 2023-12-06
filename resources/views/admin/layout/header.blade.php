@@ -1,8 +1,13 @@
 <div class="nav-header">
+
     <a href="{{ route('admin.dashboard') }}" class="brand-logo">
-        <img src="{{ asset('images/dz.png') }}" alt="iamge" width="110px" style="margin-left: 50px" class="logo-abbr">
+        <img src="{{ asset('images/dz.png') }}" alt="iamge"class="logo-abbr">
 
     </a>
+    {{-- <a href="{{ route('admin.dashboard') }}" class="brand-logo">
+        <img src="{{ asset('images/dz.png') }}" alt="iamge" width="110px" style="margin-left: 50px" class="logo-abbr">
+
+    </a> --}}
 
     <div class="nav-control">
         <div class="hamburger">

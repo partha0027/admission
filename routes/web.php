@@ -46,39 +46,35 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('/enquiry-store', [EnquiryController::class, 'enquiryStore'])->name('enquiry-store');
 
 
+
     //Addmission
+    Route::get('/view-admission', [AddmisionController::class, 'getAdd'])->name('view-add');
+    Route::get('/admission/{id}', [AddmisionController::class, 'addmission'])->name('addmission');
+    Route::get('/admission-view', [AddmisionController::class, 'addmissionView'])->name('addmission-view');
+    Route::post('/admission-store', [AddmisionController::class, 'admitStore'])->name('addmission-store');
 
-    Route::get('/view-add', [AddmisionController::class, 'getAdd'])->name('view-add');
-    Route::get('/addmission/{id}', [AddmisionController::class, 'addmission'])->name('addmission');
-    Route::get('/addmission-view', [AddmisionController::class, 'addmissionView'])->name('addmission-view');
-    Route::post('/addmission-store', [AddmisionController::class, 'admitStore'])->name('addmission-store');
 
 
-   // Old Admission
-
-    Route::get('/view-add-old', [AddmisionController::class, 'getAddOld'])->name('view-add-old');
-    Route::get('/addmission-view-old', [AddmisionController::class, 'addmissionViewOld'])->name('addmission-view-old');
+    // Old Admission
+    Route::get('/view-old-admission', [AddmisionController::class, 'getAddOld'])->name('view-add-old');
+    Route::get('/admission-view-old', [AddmisionController::class, 'addmissionViewOld'])->name('addmission-view-old');
     Route::post('/addmission-store-old', [AddmisionController::class, 'admitStoreOld'])->name('addmission-store-old');
 
     Route::get('edit-old/{id}', [AddmisionController::class, 'EditOld'])->name('edit-old');
     Route::post('update-old/{id}', [AddmisionController::class, 'UpdateOld'])->name('update-old');
-  
-  
+
+
 
 
 
     Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');
 
-    // Booking
 
+    // Booking
     Route::get('/booking/{id}', [\App\Http\Controllers\BookingController::class, 'booking'])->name('booking');
     Route::get('/booking-view', [\App\Http\Controllers\BookingController::class, 'bookingView'])->name('booking-view');
     Route::post('/booking-store', [\App\Http\Controllers\BookingController::class, 'bookingStore'])->name('booking-store');
-
 });
-
-
-
 
 
 

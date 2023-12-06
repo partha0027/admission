@@ -81,16 +81,7 @@ class AddmisionController extends Controller
     }
 
 
-
-
-
-
-
-
     //OLD ADMISSION
-
-
-
 
 
     public function admitStoreOld(Request $request)
@@ -110,6 +101,7 @@ class AddmisionController extends Controller
         $enquiry->status = $request->status;
         $enquiry->count = $request->count;
         $enquiry->month = $request->month;
+        $enquiry->admission_at = $request->session.'-'.$request->month.'-01';
 
 
         $enquiry->save();
@@ -148,6 +140,7 @@ class AddmisionController extends Controller
         $admissions->status = $request->status;
         $admissions->count = $request->count;
         $admissions->month = $request->month;
+        $admissions->admission_at = $request->session.'-'.$request->month.'-01';
 
         $admissions->save();
 

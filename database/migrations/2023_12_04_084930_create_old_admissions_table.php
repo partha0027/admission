@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('remarks')->nullable();
             $table->string('count');
             $table->string('month')->nullable();
-
+            $table->string('addmission_at');
             $table->timestamps();
             $table->softDeletes();
         });

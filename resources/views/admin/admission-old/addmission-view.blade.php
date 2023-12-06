@@ -25,7 +25,6 @@
                 </div> --}}
             </div>
 
-
             <div class="row">
 
                 <div class="col-lg-12">
@@ -37,17 +36,18 @@
                                     <a href="{{ route('addmission-view-old') }}" class="btn btn-primary">
                                         <i class="fa-solid fa-plus"></i> Add New
                                     </a>
-                                    
+
 
                                 </div>
 
-
-
-
                                 <div class="card-body">
                                     @if (Session::has('success'))
-                                        <div class="alert alert-success">
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong>{{ Session::get('success') }}</strong>
+
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                     @endif
                                     <div class="table-responsive">
@@ -57,13 +57,13 @@
                                             <thead class="text-center">
                                                 <tr>
 
-                                                    <th width="100px">Sl No.</th>
-                                                    <th width="100px">Session</th>
-                                                    <th width="100px">Admission Status</th>
+                                                    <th>Sl No.</th>
+                                                    <th>Session</th>
+                                                    <th>Admission Status</th>
                                                     {{-- <th width="10px">Remarks</th> --}}
-                                                    <th width="10px">Admission Count</th>
-                                                    <th width="10px">Month</th>
-                                                    <th width="10px">Action</th>
+                                                    <th>Admission Count</th>
+                                                    <th>Month</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
 
@@ -80,11 +80,12 @@
                                                             @php
                                                                 $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                                                             @endphp
-                                                            {{$month[$admission->month]}}
+                                                            {{ $month[$admission->month-1] }}
                                                         </td>
                                                         <td>
 
-                                                            <a href="{{ route('edit-old', $admission->id) }}" class="btn btn-sm btn-primary">
+                                                            <a href="{{ route('edit-old', $admission->id) }}"
+                                                                class="btn btn-sm btn-primary">
                                                                 <i class="fa-solid fa-edit"></i> Edit
                                                             </a>
 
@@ -98,55 +99,11 @@
 
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
-
-                        <div class="modal fade" id="course-modal" aria-hidden="true">
-                            <div class="modal-dialog  modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-primary rounded-0">
-                                        <h5 class="modal-title text-white">Department</h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i
-                                                class="fa-solid fa-circle-xmark"></i></button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <form action="javascript:void(0)" id="DepartmentForm" name="Form"
-                                            class="form-horizontal" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <strong class="error_success_msg_container my-3 text-center"></strong>
-                                            <input type="hidden" name="id" id="id">
-                                            <div class="form-group">
-                                                <label for="name" class="col-sm-6 control-label">Department Name</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        id="department_name" name="department_name"
-                                                        placeholder="Enter Department Name" maxlength="50" required="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name" class="col-sm-6 control-label">Department Code</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control rounded-0"
-                                                        id="department_code" name="department_code"
-                                                        placeholder="Enter Department Code" maxlength="50" required="">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-offset-2 col-sm-10"><br />
-                                                <button type="submit" class="btn btn-primary" id="btn-save"> <i
-                                                        class="fa-regular fa-bookmark"></i> Save changes</button>
-                                                <button type="button" class="btn btn-secondary" id="btn_cncl"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer"></div>
-                                </div>
-                            </div>
-                        </div>
-
+                        
 
                     </div>
                 </div>
