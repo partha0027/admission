@@ -113,8 +113,14 @@ class AddmisionController extends Controller
 
     public function addmissionViewOld()
     {
-
-        return view('admin.admission-old.addmission-form');
+        $month = [];
+        $old = OldAdmission::get();
+        foreach($old as $o)
+        {
+            array_push($month,$o->month);
+        }
+        
+        return view('admin.admission-old.addmission-form',compact('month'));
     }
 
 

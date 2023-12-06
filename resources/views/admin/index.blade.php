@@ -19,7 +19,7 @@
                                         <div class="progress-bar progress-animated bg-primary" style="width: 10%">
                                         </div>
                                     </div>
-                                    <small>80% Increase in 20 Days</small>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                         <div class="progress-bar progress-animated bg-warning" style="width: 50%">
                                         </div>
                                     </div>
-                                    <small>50% Increase in 25 Days</small>
+                              
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                         <div class="progress-bar progress-animated bg-success" style="width: 30%">
                                         </div>
                                     </div>
-                                    <small>30% Increase in 30 Days</small>
+                           
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                         <div class="progress-bar progress-animated bg-success" style="width: 30%">
                                         </div>
                                     </div>
-                                    <small>30% Increase in 30 Days</small>
+                              
                                 </div>
                             </div>
                         </div>

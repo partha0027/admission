@@ -105,18 +105,57 @@
                                     class="form-select  @error('month') is-invalid @enderror"
                                     value="{{ old('month') }}">
                                     <option value='' selected>--Select Month--</option>
-                                    <option value='1'>Janaury</option>
-                                    <option value='2'>February</option>
-                                    <option value='3'>March</option>
-                                    <option value='4'>April</option>
-                                    <option value='5'>May</option>
-                                    <option value='6'>June</option>
-                                    <option value='7'>July</option>
-                                    <option value='8'>August</option>
-                                    <option value='9'>September</option>
-                                    <option value='10'>October</option>
-                                    <option value='11'>November</option>
-                                    <option value='12'>December</option>
+                                    @if (!in_array('1', $month))
+                                        <option value='1'>Janaury</option>
+                                    @endif
+                                    @if (!in_array('2', $month))
+                                        <option value='2'>February</option>
+                                    @endif
+
+
+                                    {{-- <option value='2'>February</option> --}}
+                                    @if (!in_array('3', $month))
+                                        <option value='3'>March</option>
+                                    @endif
+
+                                    @if (!in_array('4', $month))
+                                        <option value='4'>April</option>
+                                    @endif
+
+                                    @if (!in_array('5', $month))
+                                        <option value='5'>May</option>
+                                    @endif
+
+                                    @if (!in_array('6', $month))
+                                        <option value='6'>June</option>
+                                    @endif
+
+                                    @if (!in_array('7', $month))
+                                        <option value='7'>July</option>
+                                    @endif
+
+
+                                    @if (!in_array('8', $month))
+                                        <option value='8'>August</option>
+                                    @endif
+
+
+                                    @if (!in_array('9', $month))
+                                        <option value='9'>September</option>
+                                    @endif
+
+                                    @if (!in_array('10', $month))
+                                        <option value='10'>October</option>
+                                    @endif
+
+                                    @if (!in_array('11', $month))
+                                        <option value='11'>November</option>
+                                    @endif
+
+                                    @if (!in_array('12', $month))
+                                        <option value='12'>December</option>
+                                    @endif
+
                                 </select>
 
                                 @error('month')
@@ -124,6 +163,8 @@
                                 @enderror
 
                             </div>
+
+
 
                             <div class="mt-3 d-grid">
                                 <input type="submit" value="Submit" class="btn btn-primary btn-block rounded-0"
