@@ -51,51 +51,148 @@
                                         </div>
                                     @endif
                                     <div class="table-responsive">
-
+                                        <span style="font-size: 20px">Session : 2023</span>
                                         <table class="table table-bordered table-condensed data-table table-hover"
-                                            id="ajax-crud-datatable">
+                                               id="ajax-crud-datatable">
                                             <thead class="text-center">
-                                                <tr>
+                                            <tr>
 
-                                                    <th>Sl No.</th>
-                                                    <th>Session</th>
-                                                    <th>Admission Status</th>
-                                                    {{-- <th width="10px">Remarks</th> --}}
-                                                    <th>Admission Count</th>
-                                                    <th>Month</th>
-                                                    <th>Action</th>
-                                                </tr>
+                                                <th>Sl No.</th>
+                                                <th>Session</th>
+                                                <th>Admission Status</th>
+                                                {{-- <th width="10px">Remarks</th> --}}
+                                                <th>Admission Count</th>
+                                                <th>Month</th>
+                                                <th>Action</th>
+                                            </tr>
                                             </thead>
 
                                             <tbody>
-                                                @foreach ($admissions as $key => $admission)
-                                                    <tr class="text-center">
+                                            @foreach ($admissions23 as $key => $admission23)
+                                                <tr class="text-center">
 
-                                                        <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $admission->session }}</td>
-                                                        <td>{{ $admission->status }}</td>
-                                                        {{-- <td>{{ $admission->remarks }}</td> --}}
-                                                        <td>{{ $admission->count }} Students</td>
-                                                        <td>
-                                                            @php
-                                                                $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-                                                            @endphp
-                                                            {{ $month[$admission->month-1] }}
-                                                        </td>
-                                                        <td>
+                                                    <td>{{ $key + 1 }}</td>
+                                                    <td>{{ $admission23->session }}</td>
+                                                    <td>{{ $admission23->status }}</td>
+                                                    {{-- <td>{{ $admission->remarks }}</td> --}}
+                                                    <td>{{ $admission23->count }} Students</td>
+                                                    <td>
+                                                        @php
+                                                            $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+                                                        @endphp
+                                                        {{ $month[$admission23->month-1] }}
+                                                    </td>
+                                                    <td>
 
-                                                            <a href="{{ route('edit-old', $admission->id) }}"
-                                                                class="btn btn-sm btn-primary">
-                                                                <i class="fa-solid fa-edit"></i> Edit
-                                                            </a>
+                                                        <a href="{{ route('edit-old', $admission23->id) }}"
+                                                           class="btn btn-sm btn-primary">
+                                                            <i class="fa-solid fa-edit"></i> Edit
+                                                        </a>
 
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                             </tbody>
 
                                         </table>
-                                        {!! $admissions->render('pagination::bootstrap-5') !!}
+                                        {!! $admissions23->render('pagination::bootstrap-5') !!}
+
+                                    </div>
+                                    <div class="table-responsive">
+                                        <br>
+                                        <span style="font-size: 20px">Session : 2022</span>
+                                        <table class="table table-bordered table-condensed data-table table-hover"
+                                               id="ajax-crud-datatable">
+                                            <thead class="text-center">
+                                            <tr>
+
+                                                <th>Sl No.</th>
+                                                <th>Session</th>
+                                                <th>Admission Status</th>
+                                                {{-- <th width="10px">Remarks</th> --}}
+                                                <th>Admission Count</th>
+                                                <th>Month</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            @foreach ($admissions22 as $key => $admission22)
+                                                <tr class="text-center">
+
+                                                    <td>{{ $key + 1 }}</td>
+                                                    <td>{{ $admission22->session }}</td>
+                                                    <td>{{ $admission22->status }}</td>
+                                                    {{-- <td>{{ $admission->remarks }}</td> --}}
+                                                    <td>{{ $admission22->count }} Students</td>
+                                                    <td>
+                                                        @php
+                                                            $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+                                                        @endphp
+                                                        {{ $month[$admission22->month-1] }}
+                                                    </td>
+                                                    <td>
+
+                                                        <a href="{{ route('edit-old', $admission22->id) }}"
+                                                           class="btn btn-sm btn-primary">
+                                                            <i class="fa-solid fa-edit"></i> Edit
+                                                        </a>
+
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+
+                                        </table>
+                                        {!! $admissions22->render('pagination::bootstrap-5') !!}
+
+                                    </div>
+                                    <div class="table-responsive"><br>
+                                        <span style="font-size: 20px">Session : 2021</span>
+                                        <table class="table table-bordered table-condensed data-table table-hover"
+                                               id="ajax-crud-datatable">
+                                            <thead class="text-center">
+                                            <tr>
+
+                                                <th>Sl No.</th>
+                                                <th>Session</th>
+                                                <th>Admission Status</th>
+                                                {{-- <th width="10px">Remarks</th> --}}
+                                                <th>Admission Count</th>
+                                                <th>Month</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            @foreach ($admissions21 as $key => $admission21)
+                                                <tr class="text-center">
+
+                                                    <td>{{ $key + 1 }}</td>
+                                                    <td>{{ $admission21->session }}</td>
+                                                    <td>{{ $admission21->status }}</td>
+                                                    {{-- <td>{{ $admission->remarks }}</td> --}}
+                                                    <td>{{ $admission21->count }} Students</td>
+                                                    <td>
+                                                        @php
+                                                            $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+                                                        @endphp
+                                                        {{ $month[$admission21->month-1] }}
+                                                    </td>
+                                                    <td>
+
+                                                        <a href="{{ route('edit-old', $admission21->id) }}"
+                                                           class="btn btn-sm btn-primary">
+                                                            <i class="fa-solid fa-edit"></i> Edit
+                                                        </a>
+
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+
+                                        </table>
+                                        {!! $admissions21->render('pagination::bootstrap-5') !!}
 
                                     </div>
                                 </div>
@@ -103,7 +200,6 @@
                             </div>
                         </div>
 
-                        
 
                     </div>
                 </div>

@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div> --}}
                 <div class="col-xl-12">
@@ -179,10 +179,10 @@
     </div>
 
     {{-- <script type="text/javascript">
-  
+
         var labels =  {{ Js::from($months) }};
         var users =  {{ Js::from($monthCount) }};
-    
+
         const data = {
           labels: labels,
           datasets: [{
@@ -192,18 +192,18 @@
             data: users,
           }]
         };
-    
+
         const config = {
           type: 'line',
           data: data,
           options: {}
         };
-    
+
         const myChart = new Chart(
           document.getElementById('myChart'),
           config
         );
-    
+
   </script> --}}
 
     <script type="text/javascript">
@@ -313,7 +313,7 @@
                 data: dataValues3,
             }]
         };
-        (data2)
+        (data3)
         const config3 = {
             type: 'bar',
             data: data3,

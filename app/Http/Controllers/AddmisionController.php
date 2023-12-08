@@ -150,11 +150,20 @@ class AddmisionController extends Controller
 
     public function getAddOld()
     {
-        $admissions = OldAdmission::orderBy('session', 'DESC')
+        $admissions23 = OldAdmission::orderBy('session', 'DESC')
+            ->where('session','2023')
+            ->orderBy('month', 'ASC')
+            ->paginate(10);
+        $admissions22 = OldAdmission::orderBy('session', 'DESC')
+            ->where('session','2022')
+            ->orderBy('month', 'ASC')
+            ->paginate(10);
+        $admissions21 = OldAdmission::orderBy('session', 'DESC')
+            ->where('session','2021')
             ->orderBy('month', 'ASC')
             ->paginate(10);
 
-        return view('admin.admission-old.addmission-view', compact('admissions'));
+        return view('admin.admission-old.addmission-view', compact('admissions23','admissions22','admissions21'));
     }
 
     public function EditOld($id)
