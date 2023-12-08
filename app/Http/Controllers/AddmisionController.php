@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booking;
-use Illuminate\Http\Request;
 use App\Models\Admission;
+use App\Models\Booking;
 use App\Models\Enquiry;
 use App\Models\OldAdmission;
+use Illuminate\Http\Request;
 
 class AddmisionController extends Controller
 {
@@ -22,7 +22,6 @@ class AddmisionController extends Controller
         $enquiry = Enquiry::get();
         return view('admin.addmission.addmission-view', compact('enquiry'));
     }
-
 
     public function admitStore(Request $request)
     {
@@ -43,7 +42,6 @@ class AddmisionController extends Controller
         $enquiry->amount = $request->amount;
         $enquiry->addmission_at = $request->addmission_at;
 
-
         $enquiry->save();
 
         $en = Enquiry::where('id', $request->enquiry_id)->first();
@@ -51,7 +49,7 @@ class AddmisionController extends Controller
         $en->update();
 
         $b = Booking::where('enquiry_id', $request->enquiry_id)->first();
-        if ($b != NULL) {
+        if ($b != null) {
             $b->status = 'c';
             $b->update();
 
@@ -59,17 +57,12 @@ class AddmisionController extends Controller
             return redirect()->route('booking-view')->with('success', 'Admission done successfully.');
         }
 
-
         // return redirect()->back()->with('success', 'Form submitted successfully.');
 
         // return view("admin.index");
 
         return redirect()->route('view-add')->with('success', 'Admission done successfully');
         // return redirect()->route('addmission-view')->with('success', 'Form submitted successfully.');
-
-
-
-
 
     }
 
@@ -80,57 +73,89 @@ class AddmisionController extends Controller
         return view('admin.addmission.addmission-view', compact('admissions'));
     }
 
-
     //OLD ADMISSION
 
+    // public function admitStoreOld(Request $request)
+    // {
+    //     $request->validate([
+    //         'session' => 'required',
+    //         'status' => 'required',
+
+    //         'count' => 'required',
+    //         'month' => 'required',
+    //     ]);
+
+    //     $enquiry = new OldAdmission();
+
+    //     $enquiry->session = $request->session;
+    //     $enquiry->status = $request->status;
+    //     $enquiry->count = $request->count;
+    //     $enquiry->month = $request->month;
+    //     $enquiry->admission_at = $request->session . '-' . $request->month . '-01';
+
+    //     $enquiry->save();
+
+    //     return redirect()->route('view-add-old')->with('success', 'Old Admission data submitted successfully');
+    // }
 
     public function admitStoreOld(Request $request)
     {
         $request->validate([
             'session' => 'required',
             'status' => 'required',
-
             'count' => 'required',
             'month' => 'required',
         ]);
 
-        $enquiry = new OldAdmission();
+        // Check if the entry already exists for the specified session and month
+        $existingEntry = OldAdmission::where('session', $request->session)
+            ->where('month', $request->month)
+            ->exists();
 
+        if ($existingEntry) {
+            return redirect()->back()->with('error', 'This session and month already exists.');
+        }
+
+        // If the entry doesn't exist, proceed to save the new entry
+        $enquiry = new OldAdmission();
 
         $enquiry->session = $request->session;
         $enquiry->status = $request->status;
         $enquiry->count = $request->count;
         $enquiry->month = $request->month;
-        $enquiry->admission_at = $request->session.'-'.$request->month.'-01';
-
+        $enquiry->admission_at = $request->session . '-' . $request->month . '-01';
 
         $enquiry->save();
 
         return redirect()->route('view-add-old')->with('success', 'Old Admission data submitted successfully');
     }
 
-
-
     public function addmissionViewOld()
     {
         $month = [];
         $old = OldAdmission::get();
-        foreach($old as $o)
-        {
-            array_push($month,$o->month);
+        foreach ($old as $o) {
+            array_push($month, $o->month);
         }
-        
-        return view('admin.admission-old.addmission-form',compact('month'));
+
+        return view('admin.admission-old.addmission-form', compact('month'));
     }
 
+    // public function getAddOld()
+    // {
+    //     // $admissions = Admission::all();
+    //     $admissions = OldAdmission::paginate(10);
+    //     return view('admin.admission-old.addmission-view', compact('admissions'));
+    // }
 
     public function getAddOld()
     {
-        // $admissions = Admission::all();
-        $admissions = OldAdmission::paginate(10);
+        $admissions = OldAdmission::orderBy('session', 'DESC')
+            ->orderBy('month', 'ASC')
+            ->paginate(10);
+
         return view('admin.admission-old.addmission-view', compact('admissions'));
     }
-
 
     public function EditOld($id)
     {
@@ -144,9 +169,9 @@ class AddmisionController extends Controller
         $admissions = OldAdmission::findOrFail($id);
         // $admissions->session = $request->session;
         // $admissions->status = $request->status;
-        $admissions->count = $request->count;
         // $admissions->month = $request->month;
         // $admissions->admission_at = $request->session.'-'.$request->month.'-01';
+        $admissions->count = $request->count;
 
         $admissions->save();
 
