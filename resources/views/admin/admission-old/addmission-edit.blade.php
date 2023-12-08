@@ -104,29 +104,29 @@
                                     class="form-select  @error('month') is-invalid @enderror"
                                     value="{{ old('month') }}">
                                     <option value='' selected>--Select Month--</option>
-                                    <option value='0' @if ($admissions->month == '0') selected @endif>Janaury
+                                    <option value='1' @if ($admissions->month == '1') selected @endif>Janaury
                                     </option>
-                                    <option value='1' @if ($admissions->month == '1') selected @endif>February
+                                    <option value='2' @if ($admissions->month == '2') selected @endif>February
                                     </option>
-                                    <option value='2' @if ($admissions->month == '2') selected @endif>March
+                                    <option value='3' @if ($admissions->month == '3') selected @endif>March
                                     </option>
-                                    <option value='3' @if ($admissions->month == '3') selected @endif>April
+                                    <option value='4' @if ($admissions->month == '4') selected @endif>April
                                     </option>
-                                    <option value='4' @if ($admissions->month == '4') selected @endif>May
+                                    <option value='5' @if ($admissions->month == '5') selected @endif>May
                                     </option>
-                                    <option value='5' @if ($admissions->month == '5') selected @endif>June
+                                    <option value='6' @if ($admissions->month == '6') selected @endif>June
                                     </option>
-                                    <option value='6' @if ($admissions->month == '6') selected @endif>July
+                                    <option value='7' @if ($admissions->month == '7') selected @endif>July
                                     </option>
-                                    <option value='7' @if ($admissions->month == '7') selected @endif>August
+                                    <option value='8' @if ($admissions->month == '8') selected @endif>August
                                     </option>
-                                    <option value='8' @if ($admissions->month == '8') selected @endif>September
+                                    <option value='9' @if ($admissions->month == '9') selected @endif>September
                                     </option>
-                                    <option value='9' @if ($admissions->month == '9') selected @endif>October
+                                    <option value='10' @if ($admissions->month == '10') selected @endif>October
                                     </option>
-                                    <option value='10' @if ($admissions->month == '10') selected @endif>November
+                                    <option value='11' @if ($admissions->month == '11') selected @endif>November
                                     </option>
-                                    <option value='11' @if ($admissions->month == '11') selected @endif>December
+                                    <option value='12' @if ($admissions->month == '12') selected @endif>December
                                     </option>
                                 </select>
 
