@@ -142,11 +142,11 @@ class AddmisionController extends Controller
     {
 
         $admissions = OldAdmission::findOrFail($id);
-        $admissions->session = $request->session;
-        $admissions->status = $request->status;
+        // $admissions->session = $request->session;
+        // $admissions->status = $request->status;
         $admissions->count = $request->count;
-        $admissions->month = $request->month;
-        $admissions->admission_at = $request->session.'-'.$request->month.'-01';
+        // $admissions->month = $request->month;
+        // $admissions->admission_at = $request->session.'-'.$request->month.'-01';
 
         $admissions->save();
 

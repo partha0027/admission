@@ -40,7 +40,7 @@
                             @endif
                             @csrf
 
-                            <div class="mb-2">
+                            {{-- <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Session</strong></label>
                                 <div class="form-group">
                                     <select name="session" id="session" value="{{ old('session') }}"
@@ -65,9 +65,9 @@
 
                                 </div>
 
-                            </div>
+                            </div> --}}
 
-                            <div class="mb-2">
+                            {{-- <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Status</strong></label>
                                 <div class="form-group">
                                     <select name="status" id="status" value="{{ old('status') }}"
@@ -87,7 +87,7 @@
 
                                 </div>
 
-                            </div>
+                            </div> --}}
 
                             <div class="mb-2">
                                 <label class="mb-2"><strong>Admission Count</strong></label>
@@ -96,7 +96,7 @@
                                     oninput="this.value = this.value.replace(/[^0-9 ]/g, '').replace(/(\..*)\./g, '$1');">
                             </div>
 
-                            <div class="mb-2">
+                            {{-- <div class="mb-2">
                                 <label class="mb-2"><strong>Month</strong></label>
 
 
@@ -104,37 +104,86 @@
                                     class="form-select  @error('month') is-invalid @enderror"
                                     value="{{ old('month') }}">
                                     <option value='' selected>--Select Month--</option>
-                                    <option value='1' @if ($admissions->month == '1') selected @endif>Janaury
-                                    </option>
-                                    <option value='2' @if ($admissions->month == '2') selected @endif>February
-                                    </option>
-                                    <option value='3' @if ($admissions->month == '3') selected @endif>March
-                                    </option>
-                                    <option value='4' @if ($admissions->month == '4') selected @endif>April
-                                    </option>
-                                    <option value='5' @if ($admissions->month == '5') selected @endif>May
-                                    </option>
-                                    <option value='6' @if ($admissions->month == '6') selected @endif>June
-                                    </option>
-                                    <option value='7' @if ($admissions->month == '7') selected @endif>July
-                                    </option>
-                                    <option value='8' @if ($admissions->month == '8') selected @endif>August
-                                    </option>
-                                    <option value='9' @if ($admissions->month == '9') selected @endif>September
-                                    </option>
-                                    <option value='10' @if ($admissions->month == '10') selected @endif>October
-                                    </option>
-                                    <option value='11' @if ($admissions->month == '11') selected @endif>November
-                                    </option>
-                                    <option value='12' @if ($admissions->month == '12') selected @endif>December
-                                    </option>
+                                    @if ($admissions->month == '1')
+                                        <option value='1' selected>Janaury
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '2')
+                                        <option value='2' selected>February
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '3')
+                                        <option value='3' selected>March
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '4')
+                                        <option value='4' selected>April
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '5')
+                                        <option value='5' selected>May
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '6')
+                                        <option value='6' selected>June
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '7')
+                                        <option value='7' selected>July
+                                        </option>
+                                    @endif
+
+
+                                    @if ($admissions->month == '8')
+                                        <option value='8' selected>August
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '9')
+                                        <option value='9' selected>September
+                                        </option>
+                                    @endif
+
+
+                                    @if ($admissions->month == '10')
+                                        <option value='10' selected>October
+                                        </option>
+                                    @endif
+
+                                    @if ($admissions->month == '11')
+                                        <option value='11' selected>November
+                                        </option>
+                                    @endif
+
+
+                                    @if ($admissions->month == '12')
+                                        <option value='12' selected>December
+                                        </option>
+                                    @endif
+
+                                  
+                               
+                                   
+
+
+
+
+                                    
+                                  
+                                   
                                 </select>
 
                                 @error('month')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
 
-                            </div>
+                            </div> --}}
 
 
                             <div class="mt-3 d-grid">
