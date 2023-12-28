@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
 
 
-    Route::get('/follow-up/{id}', [EnquiryController::class, 'followUp'])->name('follow-up');
+    Route::post('follow-up', [EnquiryController::class, 'followUp'])->name('follow-up');
 
 
     // Booking

@@ -34,6 +34,8 @@
                             <div class="card shadow-sm">
                                 <div class="card-header">
                                     <h4 class="card-title">All Enquiries </h4>
+                                    <!-- Button trigger modal -->
+
                                     <a href="{{ route('enquiry') }}" class="btn btn-primary"><i
                                             class="fa-solid fa-plus"></i> Add Enquiry</a>
 
@@ -83,7 +85,19 @@
                                                         <td>{{ $enquiry->source }}</td>
 
 
-                                                        <td>{{ $enquiry->follow_up }} Follow-up</td>
+                                                        <td>
+                                                            @php
+                                                                $f = App\Models\FollowUp::Where('e_id', $enquiry->id)
+                                                                    ->latest()
+                                                                    ->first();
+                                                                if ($f == null) {
+                                                                    echo 'N/A';
+                                                                } else {
+                                                                    echo "<b>".date('d M,y', strtotime($f->created_at)) . '</b> : ' . $f->message;
+                                                                }
+
+                                                            @endphp
+                                                        </td>
                                                         <td>
                                                             @if ($enquiry->status == 'b')
                                                                 At Booking
@@ -96,12 +110,12 @@
                                                         <td>{{ $enquiry->enquiry_at }}</td>
                                                         <td>{{ $enquiry->comment }}</td>
                                                         <td>
-                                                            <a href="{{ route('follow-up', $enquiry->id) }}">
+                                                            {{-- <a href="{{ route('follow-up', $enquiry->id) }}">
                                                                 <button class="btn btn-primary btn-sm mt-1"
                                                                     onclick="return confirm('Are you sure ?');">
                                                                     Follow-Up
                                                                 </button>
-                                                            </a>
+                                                            </a> --}}
                                                             @if ($enquiry->status == 'i')
                                                                 <a href="{{ route('addmission', $enquiry->id) }}">
                                                                     <button class="btn btn-primary btn-sm mt-1">Admission
@@ -114,6 +128,46 @@
                                                                         class="btn btn-primary btn-sm mt-1">Booking</button>
                                                                 </a>
                                                             @endif
+                                                            <button type="button" class="btn btn-primary btn-sm mt-1"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal{{ $key + 1 }}">
+                                                                Follow Up
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal{{ $key + 1 }}"
+                                                                tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <form action="{{ route('follow-up')}}" method="post">
+                                                                            @csrf
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalLabel">Modal title</h5>
+                                                                                <button type="button" class="btn-close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <input type="hidden" name="id"
+                                                                                    value="{{ $enquiry->id }}"
+                                                                                    id="">
+                                                                                <textarea name="message" id="" cols="30" rows="10" class="form-control" placeholder="Enter Comment"
+                                                                                    required></textarea>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">Save
+                                                                                </button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </td>
 
                                                     </tr>
@@ -148,15 +202,18 @@
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control rounded-0"
                                                         id="department_name" name="department_name"
-                                                        placeholder="Enter Department Name" maxlength="50" required="">
+                                                        placeholder="Enter Department Name" maxlength="50"
+                                                        required="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="name" class="col-sm-6 control-label">Department Code</label>
+                                                <label for="name" class="col-sm-6 control-label">Department
+                                                    Code</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control rounded-0"
                                                         id="department_code" name="department_code"
-                                                        placeholder="Enter Department Code" maxlength="50" required="">
+                                                        placeholder="Enter Department Code" maxlength="50"
+                                                        required="">
                                                 </div>
                                             </div>
 

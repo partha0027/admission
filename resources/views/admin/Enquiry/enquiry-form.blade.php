@@ -20,9 +20,11 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-4">
-                <div class="card shadow-sm mt-3">
+                <div class="card shadow-sm mt-5">
                     <div class="card-header">
                         <h4 class="fw-bold  text-center">Enquiry </h4>
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Home</a>
+                    
                         {{-- <h4 class="fw-bold  text-center">Login </h4> --}}
                     </div>
                     <div class="card-body">
@@ -91,70 +93,15 @@
                                     class="form-select  @error('course_title') is-invalid @enderror"
                                     aria-label="Default select example">
                                     <option value="">--Select Course --</option>
-                                    <option value="Master Diploma in Interior Architecture Design">Master Diploma in
-                                        Interior Architecture Design</option>
-                                    <option value="Master Diploma in Interior Architecture and Design Sketchup">Master
-                                        Diploma in Interior Architecture and Design Sketchup</option>
-                                    <option value="Professional in IAD Grafx">Professional in IAD Grafx</option>
-                                    <option value="Diploma in Interior Architecture Design">Diploma in Interior
-                                        Architecture Design</option>
-                                    <option value="Diploma in IAD Grafx">Diploma in IAD Grafx</option>
-                                    <option value="CAD fro Creative Design">CAD fro Creative Design</option>
-                                    <option value="Design Visusalization">Design Visusalization</option>
-                                    <option value="Certificate Course on Design Visusalization(Sketchup)">Certificate
-                                        Course on Design Visusalization(Sketchup)</option>
-                                    <option value="Certificate Course on Advanced Rendering(V-Ray)">Certificate
-                                        Course on Advanced Rendering(V-Ray)</option>
-                                    <option
-                                        value="Advanced Certificate Course on Design Visualization(Sketchup & V-Ray)">
-                                        Advanced Certificate
-                                        Course on Design Visualization(Sketchup & V-Ray)</option>
-                                    <option
-                                        value="Advanced Certificate Course on Design Visualization(3ds Max & V-Ray)">
-                                        Advanced Certificate
-                                        Course on Design Visualization(3ds Max & V-Ray)</option>
+                                    <option value="Interior Design">Interior Design
+                                      </option>
+                                    <option value="Fashion Design">Fashion Design
+                                      </option>
+                                    <option value="Web Design">Web Design
+                                      </option>
+                                    <option value="Graphics & Animation">Graphics & Animation
+                                      </option>
 
-
-
-                                    <option value="Master Diploma in Fashion Design">Master Diploma in Fashion Design
-                                    </option>
-                                    <option value="Professional in Fashion Design">Professional in Fashion Design
-                                    </option>
-                                    <option value="Certificate course on Manual Pattern Making">Certificate course on
-                                        Manual Pattern Making</option>
-
-
-                                    <option value="PG Diploma in Graphics & Animation (Pre &AFE ) Max">PG Diploma in
-                                        Graphics & Animation (Pre &AFE ) Max</option>
-                                    <option value="Master diploma in 2d Graphics & web Design">Master diploma in 2d
-                                        Graphics & web Design
-                                    </option>
-                                    <option value="Professional in 2d Graphics & Web design">Professional in 2d Graphics
-                                        & Web design
-                                    </option>
-                                    <option value="Diploma in Graphic Design">Diploma in Graphic Design</option>
-                                    <option value="Certiificate Course on Image Editing">Certiificate Course on Image
-                                        Editing</option>
-                                    <option value="Certificate Course on Digital Illustration">Certificate Course on
-                                        Digital Illustration</option>
-                                    <option value="Certificate Course on Digital draw and Design">Certificate Course on
-                                        Digital draw and Design</option>
-
-                                    <option value="Certificate Course on Print and Publishing Designs">Certificate
-                                        Course on Print and Publishing Designs</option>
-                                    <option value="Cerificate Course on Web Graphics">Cerificate Course on Web Graphics
-                                    </option>
-                                    <option value="Master Diploma in Web Design & Development">Master Diploma in Web
-                                        Design & Development</option>
-
-
-                                    <option value="Master Diploma in 3D Modelling & Animation Maya">Master Diploma in
-                                        3D
-                                        Modelling & Animation Maya</option>
-                                    <option value="Diploma in Movie Editing & Compositing ">Diploma in Movie Editing &
-                                        Compositing </option>
-                                    <option value="Certificate Course on Editing">Certificate Course on Editing
-                                    </option>
                                 </select>
                                 @error('course_title')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -178,7 +125,7 @@
                                 <label class=""><strong>Comment</strong></label>
                                 <div class="col-sm-12">
                                     <textarea name="comment" id="comment" class="form-control @error('comment') is-invalid @enderror"
-                                        value="{{ old('comment') }}"></textarea>
+                                        value="{{ old('comment') }}" placeholder="Comment"></textarea>
 
                                     @error('comment')
                                         <div class="invalid-feedback">{{ $message }}</div>

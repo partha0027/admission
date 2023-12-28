@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Enquiry;
+use App\Models\FollowUp;
+use Illuminate\Http\Request;
 
 class EnquiryController extends Controller
 {
@@ -12,7 +13,6 @@ class EnquiryController extends Controller
     {
         return view("admin.Enquiry.enquiry-form");
     }
-
 
     public function enquiryStore(Request $request)
     {
@@ -42,19 +42,25 @@ class EnquiryController extends Controller
         return redirect()->route('view-enquiry')->with('success', 'Enquiry submitted successfully.');
     }
 
-
     public function getEnquiry()
     {
         $enquiries = Enquiry::paginate(10);
         return view('admin.Enquiry.enquiry-view', compact('enquiries'));
     }
 
-    public function followUp($id)
+    public function followUp(Request $request)
     {
-        $data = Enquiry::where('id', $id)->first();
+        $data = Enquiry::where('id', $request->id)->first();
         $followUp = $data->follow_up + 1;
         $data->follow_up = $followUp;
         $data->update();
+
+        $follow = new FollowUp();
+        $follow->e_id = $data->id;
+        $follow->followUp = $followUp;
+        $follow->message = $request->message;
+        $follow->save();
         return redirect()->back()->with('success', 'Follow-Up add.');
     }
+
 }
